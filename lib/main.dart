@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/AdminHome.dart';
 import 'package:project/Data.dart';
+import 'package:project/StudentHome.dart';
 import 'package:project/signUp.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -118,10 +119,20 @@ class MyHomePage extends StatelessWidget {
                         final userType = querySnapshot.docs.first.get('type');
                         User.email = email;
                         print('User type: $userType');
+                        if(userType == "admin"){
+                        // ignore: use_build_context_synchronously
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) =>  Admin()),
                         );
+                      }
+                      else{
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Student()),
+                        );
+
+                      }
                       }
                       else{//incorrect password
                         showDialog(
@@ -188,7 +199,7 @@ class MyHomePage extends StatelessWidget {
                   child:
                     const Text('دخول',style: TextStyle(
                         fontSize: 20,
-                        color: Colors.green,
+                        color: Color.fromARGB(255, 4, 232, 11),
                         fontStyle: FontStyle.italic,
                         fontFamily: 'casual',
                         letterSpacing: 5),),
@@ -216,7 +227,7 @@ class MyHomePage extends StatelessWidget {
                   child:
                   const Text('انشاء حساب',style: TextStyle(
                       fontSize: 20,
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 5, 237, 13),
                       fontStyle: FontStyle.italic,
                       fontFamily: 'casual',
                       letterSpacing: 5),),

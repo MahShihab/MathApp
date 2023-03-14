@@ -12,7 +12,7 @@ class Student extends StatelessWidget {
       /*******************--[focus here 🧐]--*******************/
       appBar: AppBar(
         leading: const Icon(Icons.android_sharp),
-        title: const Text('Admin Page'),
+        title: const Text('Student Page'),
 
         backgroundColor: Colors.teal,
         elevation: 4,
@@ -36,9 +36,9 @@ class Student extends StatelessWidget {
   }
   Text MyFirstQuiz_text() {
     return const Text(
-      'Admin page',
+      'Student page',
       style: TextStyle(
-          backgroundColor: Colors.yellow,
+          backgroundColor: Color.fromARGB(255, 229, 10, 185),
           fontSize: 50,
           color: Colors.green,
           fontStyle: FontStyle.italic,
