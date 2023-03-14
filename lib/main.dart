@@ -5,6 +5,7 @@ import 'package:project/signUp.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'firebase_options.dart';
 
 // ...
@@ -70,7 +71,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color.fromARGB(0, 30, 213, 125),
+                        color: Color.fromARGB(0, 238, 7, 184),
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
