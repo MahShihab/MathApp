@@ -71,7 +71,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: Color.fromARGB(0, 238, 7, 184),
+                        color: Color.fromARGB(0, 49, 2, 38),
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
