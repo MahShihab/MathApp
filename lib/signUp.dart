@@ -249,7 +249,7 @@ class SignUp extends StatelessWidget {
                         'fullname': name,
                         'email': email,
                         'password': password,
-                        'type': 'admin',
+                        'type': 'student',
                       });
 
                       print(email + password + confirmPassword + name);
