@@ -1,6 +1,6 @@
 # project
 
-hassan master master to merge
+merge merge
 
 A new Flutter project.
 
