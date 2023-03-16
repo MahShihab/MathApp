@@ -56,7 +56,11 @@ class MyHomePage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
+             Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+            child:
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 350),
@@ -111,6 +115,8 @@ class MyHomePage extends StatelessWidget {
                     final usersRef = FirebaseFirestore.instance.collection('users');
                     // check if email already exists in database
                     final querySnapshot = await usersRef.where('email', isEqualTo: email).get();
+
+                    
 
                     if (querySnapshot.docs.isNotEmpty) {
                       // email already exists, get the type of user
@@ -199,7 +205,7 @@ class MyHomePage extends StatelessWidget {
                   child:
                     const Text('دخول',style: TextStyle(
                         fontSize: 20,
-                        color: Color.fromARGB(255, 4, 232, 11),
+                        color: Color.fromARGB(255, 253, 255, 253),
                         fontStyle: FontStyle.italic,
                         fontFamily: 'casual',
                         letterSpacing: 5),),
@@ -214,7 +220,7 @@ class MyHomePage extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.black, // Set the desired background color here
+                      Color.fromARGB(255, 53, 214, 139), // Set the desired background color here
                     ),
                     minimumSize: MaterialStateProperty.all<Size>(const Size(100, 50)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -227,13 +233,14 @@ class MyHomePage extends StatelessWidget {
                   child:
                   const Text('انشاء حساب',style: TextStyle(
                       fontSize: 20,
-                      color: Color.fromARGB(255, 5, 237, 13),
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontStyle: FontStyle.italic,
                       fontFamily: 'casual',
                       letterSpacing: 5),),
                 ),
               ],
             ),
+            )
           ],
         ),
       ),
