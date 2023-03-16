@@ -7,13 +7,21 @@ class Student extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff4f4f4),
+      backgroundColor: Color.fromARGB(204, 246, 86, 160),
       /*******************--[focus here 🧐]--*******************/
       appBar: AppBar(
-        leading: const Icon(Icons.android_sharp),
-        title: const Text('Student Page'),
+        //leading: const Icon(Icons.android_sharp),
+        title: const Text(
+            'الرياضيات للأطفال',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                  fontFamily: 'Outfit',
+                  color: Colors.white,
+                  fontSize: 35,
+                ),
+          ),
 
-        backgroundColor: Colors.teal,
+        backgroundColor: Color.fromARGB(255, 237, 93, 150),
         elevation: 4,
       ),
       body: studentMainBodyPage(context),
