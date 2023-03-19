@@ -3,6 +3,8 @@ import 'package:project/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
+
+
 class SignUp extends StatelessWidget {
   SignUp({super.key});
 
@@ -10,6 +12,10 @@ class SignUp extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
+  // String? userType;
+  
+  final ValueNotifier<String> userType = ValueNotifier<String>('student');
+
   final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+com$');
   final passwordRegex = RegExp(r'^(?=.*?[!@#\$&*~]).{8,}$');
 
@@ -26,8 +32,11 @@ class SignUp extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
-            Column(
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
+            child:Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: [
                 const SizedBox(height: 350),
                 TextFormField(
@@ -115,6 +124,33 @@ class SignUp extends StatelessWidget {
                   ),
                   controller: confirmPasswordController,
                 ),
+                const SizedBox(height: 10),
+                ValueListenableBuilder(
+                  valueListenable: userType,
+                  builder: (BuildContext context, String? value, Widget? child) {
+                    return Row(
+                      children: [
+                        Radio<String>(
+                          value: 'admin',
+                          groupValue: value,
+                          onChanged: (value) {
+                            userType.value = value!;
+                          },
+                        ),
+                        Text('Admin'),
+                        Radio<String>(
+                          value: 'student',
+                          groupValue: value,
+                          onChanged: (value) {
+                            userType.value = value!;
+                          },
+                        ),
+                        Text('Student'),
+                      ],
+                    );
+                  },
+                ),
+
                 const SizedBox(height: 25),
                 ElevatedButton(
                   onPressed: ()  async {
@@ -126,6 +162,8 @@ class SignUp extends StatelessWidget {
                     final usersRef = FirebaseFirestore.instance.collection('users');
                     // check if email already exists in database
                     final querySnapshot = await usersRef.where('email', isEqualTo: email).get();
+
+                    print("dflkgnlkdnglknglk"+ userType.value);
 
                     if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty || name.isEmpty) {
                       // Display error message
@@ -249,7 +287,7 @@ class SignUp extends StatelessWidget {
                         'fullname': name,
                         'email': email,
                         'password': password,
-                        'type': 'student',
+                        'type': userType.value,
                       });
 
                       print(email + password + confirmPassword + name);
@@ -273,9 +311,9 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   child:
-                  const Text('دخول',style: TextStyle(
+                  const Text('انشاء حساب',style: TextStyle(
                       fontSize: 20,
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 240, 241, 240),
                       fontStyle: FontStyle.italic,
                       fontFamily: 'casual',
                       letterSpacing: 5),),
@@ -290,7 +328,7 @@ class SignUp extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.black, // Set the desired background color here
+                      Color.fromARGB(255, 117, 224, 164), // Set the desired background color here
                     ),
                     minimumSize: MaterialStateProperty.all<Size>(const Size(100, 50)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -303,13 +341,14 @@ class SignUp extends StatelessWidget {
                   child:
                   const Text('تسجبل دخول',style: TextStyle(
                       fontSize: 20,
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontStyle: FontStyle.italic,
                       fontFamily: 'casual',
                       letterSpacing: 5),),
                 ),
               ],
             ),
+        )
           ],
         ),
       ),
