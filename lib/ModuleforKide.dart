@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:project/videoPage.dart';
+import 'package:project/activityPage.dart';
+import 'package:project/StarsPageForNumberFromZeroToNine.dart';
+
+
 //import 'package:audioplayers/audioplayers.dart';
 
 
@@ -180,13 +184,13 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => VideoPageWidget(),
+                                    builder: (context) => ActicityPageWidget(),
                                   ),
                                 );
                               },
                               child: Image.asset(
-                                'assets/OneToTen.png',
-                                height: 200,
+                                'assets/FarmerWithWheel.png',
+                                height: 100,
                                 width: 300,
                                 fit: BoxFit.cover,
                               ),
@@ -196,40 +200,53 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                         child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 7,
-                                color: Color(0x33000000),
-                                offset: Offset(7, 7),
-                                spreadRadius: 7,
-                              )
-                            ],
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xFF5EBE42),
-                                Color(0xFF35539F),
-                                Color(0xFF673AB7),
-                                Colors.blue
+                            width: 220,
+                            height: 140,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: Image.network(
+                                  '',
+                                ).image,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 7,
+                                  color: Color(0x33000000),
+                                  offset: Offset(7, 7),
+                                  spreadRadius: 7,
+                                )
                               ],
-                              stops: [0, 0, 0.3, 1],
-                              begin: AlignmentDirectional(-1, 0),
-                              end: AlignmentDirectional(1, 0),
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFF35539F),
+                                  Color(0xFF673AB7),
+                                  Colors.blue
+                                ],
+                                stops: [0, 0.3, 1],
+                                begin: AlignmentDirectional(-1, 0),
+                                end: AlignmentDirectional(1, 0),
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
                             ),
-                            borderRadius: BorderRadius.circular(20),
-                            shape: BoxShape.rectangle,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0, 0),
-                            child: Icon(
-                              Icons.stars,
-                              color: Color(0xFFD5E411),
-                              size: 70,
+                            child: InkWell(
+                              onTap: () async {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => StarsPageForNumberFromZeroToNineWidget(),
+                                  ),
+                                );
+                              },
+                              child: Image.asset(
+                                'assets/StarsPicturesForNumbersFromZeroToNine/space.jpg',
+                                height: 100,
+                                width: 300,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:project/ModuleforKide.dart';
+import 'package:project/activityPage.dart';
+
 import 'package:audioplayers/audioplayers.dart';
 
 
@@ -55,16 +57,15 @@ class _VideoPageWidgetState extends State<VideoPageWidget> {
                       scaleY: 1.8,
                       child: YoutubePlayer(
                         onEnded: (_) async {
-                          await audioPlayer.play('sound1.mp3');
+                         //await audioPlayer.play('sound1.mp3');
                           await Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ModuleforKideWidget(
-                                email: '',
-                              ),
+                              builder: (context) => ActicityPageWidget(),
                             ),
                           );
                           // play the audio file
+                          //await audioPlayer.play('المزارع بحاجة الى عجلة واحدة هل يمكنك ان.mp3');
                           
                           
                           

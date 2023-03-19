@@ -70,6 +70,39 @@ flutter:
   assets:
     - assets/OneToTen.png
     - assets/sound1.mp3
+    - assets/FarmerWithoutWheel.jpg
+    - assets/FarmerWithWheel.png
+    - assets/OneWheel.jpg
+    - assets/TwoWheel.jpg
+    - assets/المزارع بحاجة الى عجلة واحدة هل يمكنك ان.mp3
+    - assets/إجابة صحيحة.mp3
+    - assets/إجابة خاطئة.mp3
+    - assets/StarsPicturesForNumbersFromZeroToNine/space.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space1.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space2.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space3.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space4.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space5.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space6.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space7.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space8.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space9.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/space0.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/manSpace.jpg
+    - assets/StarsPicturesForNumbersFromZeroToNine/spaceThanksForCountingStars.jpg
+    - assets/StarsAudiosForNumbersFromZeroToNine/النجوم لم تظهر بعد العدد صفر.mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/شكرا لمساعدتكم على عد النجوم رافقتكم الس.mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/عثرنا على نجمة واحدة في الفضاء العدد واح.mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/هيا نذهب في رحلة الى الفضاء كي نساعد رجل.m4a
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ثلاثة نجوم وبالتالي العدد.mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء نجمتين وبالتالي العدد اثن.mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء أربعة نجوم وبالتالي العدد.mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء خمسة نجوم وبالتالي العدد .mp3
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ستة نجوم وبالتالي العدد س.m4a
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء سبعة نجوم وبالتالي العدد .m4a
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ثمانية نجوم وبالتالي العد.m4a
+    - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء تسعة نجوم وبالتالي العدد .m4a
+
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
