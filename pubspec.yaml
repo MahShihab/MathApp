@@ -33,6 +33,7 @@ dependencies:
   cloud_firestore: ^4.4.4
   flutter:
     sdk: flutter
+  lottie: ^1.1.0
 
   cupertino_icons: ^1.0.2
   youtube_player_flutter: ^8.1.2
@@ -102,6 +103,12 @@ flutter:
     - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء سبعة نجوم وبالتالي العدد .m4a
     - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ثمانية نجوم وبالتالي العد.m4a
     - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء تسعة نجوم وبالتالي العدد .m4a
+    - assets/OceanActivity/fishStart.json
+    - assets/OceanActivity/fish2.png
+    - assets/OceanActivity/bubbles.json
+    - assets/OceanActivity/prize.json
+    - assets/OceanActivity/21188-target-hit.json
+    - assets/OceanActivity/86023-earn-rewards.json
 
   
 

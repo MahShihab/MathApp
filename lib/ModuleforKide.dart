@@ -3,11 +3,11 @@ import 'package:flutter/scheduler.dart';
 import 'package:project/videoPage.dart';
 import 'package:project/activityPage.dart';
 import 'package:project/StarsPageForNumberFromZeroToNine.dart';
+import 'package:project/OceanActivity.dart';
+import 'package:lottie/lottie.dart';
 
 
 //import 'package:audioplayers/audioplayers.dart';
-
-
 
 //import '/video_page/video_page_widget.dart';
 
@@ -35,7 +35,6 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
   final _unfocusNode = FocusNode();
   //final audioPlayer = AudioCache();
 
-
   @override
   void initState() {
     super.initState();
@@ -47,7 +46,7 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
 
   @override
   void dispose() {
-   // _model.dispose();
+    // _model.dispose();
 
     _unfocusNode.dispose();
     super.dispose();
@@ -55,7 +54,6 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
 
   @override
   Widget build(BuildContext context) {
-     
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color.fromARGB(204, 246, 86, 160),
@@ -68,10 +66,10 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
             'الرياضيات للأطفال',
             textAlign: TextAlign.center,
             style: TextStyle(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 35,
-                ),
+              fontFamily: 'Outfit',
+              color: Colors.white,
+              fontSize: 35,
+            ),
           ),
         ),
         actions: [],
@@ -94,7 +92,8 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                       Align(
                         alignment: AlignmentDirectional(-0.1, 0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                           child: Container(
                             width: 220,
                             height: 140,
@@ -128,7 +127,6 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                             ),
                             child: InkWell(
                               onTap: () async {
-                               
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -149,111 +147,15 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
                         child: Container(
-                            width: 220,
-                            height: 140,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: Image.network(
-                                  '',
-                                ).image,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 7,
-                                  color: Color(0x33000000),
-                                  offset: Offset(7, 7),
-                                  spreadRadius: 7,
-                                )
-                              ],
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFF35539F),
-                                  Color(0xFF673AB7),
-                                  Colors.blue
-                                ],
-                                stops: [0, 0.3, 1],
-                                begin: AlignmentDirectional(-1, 0),
-                                end: AlignmentDirectional(1, 0),
-                              ),
-                              borderRadius: BorderRadius.circular(20),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: InkWell(
-                              onTap: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ActicityPageWidget(),
-                                  ),
-                                );
-                              },
-                              child: Image.asset(
-                                'assets/FarmerWithWheel.png',
-                                height: 100,
-                                width: 300,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
-                        child: Container(
-                            width: 220,
-                            height: 140,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: Image.network(
-                                  '',
-                                ).image,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 7,
-                                  color: Color(0x33000000),
-                                  offset: Offset(7, 7),
-                                  spreadRadius: 7,
-                                )
-                              ],
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFF35539F),
-                                  Color(0xFF673AB7),
-                                  Colors.blue
-                                ],
-                                stops: [0, 0.3, 1],
-                                begin: AlignmentDirectional(-1, 0),
-                                end: AlignmentDirectional(1, 0),
-                              ),
-                              borderRadius: BorderRadius.circular(20),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: InkWell(
-                              onTap: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => StarsPageForNumberFromZeroToNineWidget(),
-                                  ),
-                                );
-                              },
-                              child: Image.asset(
-                                'assets/StarsPicturesForNumbersFromZeroToNine/space.jpg',
-                                height: 100,
-                                width: 300,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
-                        child: Container(
-                          width: 100,
-                          height: 100,
+                          width: 220,
+                          height: 140,
                           decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: Image.network(
+                                '',
+                              ).image,
+                            ),
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 7,
@@ -264,24 +166,134 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                             ],
                             gradient: LinearGradient(
                               colors: [
-                                Color(0xFF5EBE42),
                                 Color(0xFF35539F),
                                 Color(0xFF673AB7),
                                 Colors.blue
                               ],
-                              stops: [0, 0, 0.3, 1],
+                              stops: [0, 0.3, 1],
                               begin: AlignmentDirectional(-1, 0),
                               end: AlignmentDirectional(1, 0),
                             ),
                             borderRadius: BorderRadius.circular(20),
                             shape: BoxShape.rectangle,
                           ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0, 0),
-                            child: Icon(
-                              Icons.stars,
-                              color: Color(0xFFD5E411),
-                              size: 70,
+                          child: InkWell(
+                            onTap: () async {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ActicityPageWidget(),
+                                ),
+                              );
+                            },
+                            child: Image.asset(
+                              'assets/FarmerWithWheel.png',
+                              height: 100,
+                              width: 300,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                        child: Container(
+                          width: 220,
+                          height: 140,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: Image.network(
+                                '',
+                              ).image,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 7,
+                                color: Color(0x33000000),
+                                offset: Offset(7, 7),
+                                spreadRadius: 7,
+                              )
+                            ],
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFF35539F),
+                                Color(0xFF673AB7),
+                                Colors.blue
+                              ],
+                              stops: [0, 0.3, 1],
+                              begin: AlignmentDirectional(-1, 0),
+                              end: AlignmentDirectional(1, 0),
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: InkWell(
+                            onTap: () async {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      StarsPageForNumberFromZeroToNineWidget(),
+                                ),
+                              );
+                            },
+                            child: Image.asset(
+                              'assets/StarsPicturesForNumbersFromZeroToNine/space.jpg',
+                              height: 100,
+                              width: 300,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                        child: Container(
+                          width: 220,
+                          height: 140,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: Image.network(
+                                '',
+                              ).image,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 7,
+                                color: Color(0x33000000),
+                                offset: Offset(7, 7),
+                                spreadRadius: 7,
+                              )
+                            ],
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFF35539F),
+                                Color(0xFF673AB7),
+                                Colors.blue
+                              ],
+                              stops: [0, 0.3, 1],
+                              begin: AlignmentDirectional(-1, 0),
+                              end: AlignmentDirectional(1, 0),
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: InkWell(
+                            onTap: () async {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OceanActivityWidget(),
+                                ),
+                              );
+                            },
+                            child: Lottie.asset(
+                              'assets/OceanActivity/fishStart.json',
+                              height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
                           ),
                         ),

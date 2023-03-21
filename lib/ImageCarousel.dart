@@ -82,6 +82,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
               scaleX: 2,
               scaleY: 1.8,
               child: Image.asset(
+                
                 widget.imageUrls[index],
                 //fit: BoxFit.cover,
               ),
