@@ -14,7 +14,6 @@ class Admin extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final TextEditingController _textController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,11 +22,11 @@ class Admin extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.account_circle),
           onPressed: () {
-          // Code to execute when the icon is tapped
-          Navigator.push(
+            // Code to execute when the icon is tapped
+            Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>  Profile()),
-          );
+              MaterialPageRoute(builder: (context) => Profile()),
+            );
           },
         ),
         backgroundColor: Colors.teal,
@@ -46,113 +45,116 @@ class Admin extends StatelessWidget {
         ),
       ),
       body: FutureBuilder<List<String>>(
-      future: getStudentEmailsForAdmin(User.email),
-      builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
-        if (snapshot.hasData) {
-          return ListView.builder(
-            itemCount: snapshot.data!.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                width: double.infinity,
-                color: Colors.grey[200],
-                child: Column(
-                  children: [
-                    ListTile(
-                      onTap: () {
-                        User.StudentEmailInfo = snapshot.data![index];
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  StudentInfo()),
-                        );
-                      },
-                      title: Text(snapshot.data![index]),
-                      trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    ),
-                    Divider(),
-                  ],
-                ),
-              );
-            },
-          );
-        } else if (snapshot.hasError) {
-          return Center(
-            child: Text("Error"),
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
-    ),
-    floatingActionButton: FloatingActionButton(
-  onPressed: () {
-    showSearchDialog(context);
-  },
-  child: Icon(Icons.add),
-  backgroundColor: Colors.teal,
-),
-
-    floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-  );
+        future: getStudentEmailsForAdmin(User.email),
+        builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  width: double.infinity,
+                  color: Colors.grey[200],
+                  child: Column(
+                    children: [
+                      ListTile(
+                        onTap: () {
+                          User.StudentEmailInfo = snapshot.data![index];
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentInfo()),
+                          );
+                        },
+                        title: Text(snapshot.data![index]),
+                        trailing: Icon(Icons.arrow_forward_ios_rounded),
+                      ),
+                      Divider(),
+                    ],
+                  ),
+                );
+              },
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text("Error"),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showSearchDialog(context);
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.teal,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+    );
   }
 
   showSearchDialog(BuildContext context) {
-  String email = "";
+    String email = "";
 
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text("Search for user"),
-        content: TextField(
-          onChanged: (value) {
-            email = value;
-          },
-          decoration: InputDecoration(
-            labelText: "Email",
-            hintText: "Enter email address",
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Search for user"),
+          content: TextField(
+            onChanged: (value) {
+              email = value;
             },
-            child: Text("Cancel"),
+            decoration: InputDecoration(
+              labelText: "Email",
+              hintText: "Enter email address",
+            ),
           ),
-          ElevatedButton(
-            onPressed: () async {
-              // search for user in Firestore
-              final usersRef = FirebaseFirestore.instance.collection('users');
-                    // check if email already exists in database
-              final querySnapshot = await usersRef.where('email', isEqualTo: email).get();
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancel"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                // search for user in Firestore
+                final usersRef = FirebaseFirestore.instance.collection('users');
+                // check if email already exists in database
+                final querySnapshot =
+                    await usersRef.where('email', isEqualTo: email).get();
 
-              final StudentsList = FirebaseFirestore.instance.collection('StudentsList');
-                    // check if email already exists in database
-              final AdminStudent = await StudentsList.where('AdminEmail', isEqualTo: User.email).where('StudentEmail', isEqualTo: email).get(GetOptions(source: Source.server));
+                final StudentsList =
+                    FirebaseFirestore.instance.collection('StudentsList');
+                // check if email already exists in database
+                final AdminStudent = await StudentsList.where('AdminEmail',
+                        isEqualTo: User.email)
+                    .where('StudentEmail', isEqualTo: email)
+                    .get(GetOptions(source: Source.server));
 
+                if (querySnapshot.docs.isNotEmpty) {
+                  // check if user is a student
+                  final userType = querySnapshot.docs.first.get('type');
+                  // String userType = userDoc.get("type");
+                  if (userType == "student") {
+                    // user is a student
 
-              if (querySnapshot.docs.isNotEmpty) {
-                // check if user is a student
-                final userType = querySnapshot.docs.first.get('type');
-                // String userType = userDoc.get("type");
-                if (userType == "student") {
-                  // user is a student
-
-                  if(AdminStudent.docs.isEmpty){
-
-                    Navigator.pop(context);
-                    //Add to database
-                    FirebaseFirestore.instance.collection('StudentsList').add({
+                    if (AdminStudent.docs.isEmpty) {
+                      Navigator.pop(context);
+                      //Add to database
+                      FirebaseFirestore.instance
+                          .collection('StudentsList')
+                          .add({
                         'AdminEmail': User.email,
                         'StudentEmail': email,
                       });
 
-                      
-
-                    // ignore: use_build_context_synchronously
-                  showDialog(
+                      // ignore: use_build_context_synchronously
+                      showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
@@ -163,8 +165,9 @@ class Admin extends StatelessWidget {
                                 onPressed: () {
                                   // Navigator.of(context).pop();
                                   Navigator.push(
-                                  context,
-                                    MaterialPageRoute(builder: (context) =>  Admin()),
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Admin()),
                                   );
                                 },
                                 child: const Text('OK'),
@@ -172,17 +175,14 @@ class Admin extends StatelessWidget {
                             ],
                           );
                         },
-                      );  
+                      );
+                    } else {
+                      print(AdminStudent.docs.length);
 
-                  }
-                  else{
-                    print(AdminStudent.docs.length );
+                      Navigator.pop(context);
 
-
-                    Navigator.pop(context);
-
-                  // ignore: use_build_context_synchronously
-                  showDialog(
+                      // ignore: use_build_context_synchronously
+                      showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
@@ -199,72 +199,62 @@ class Admin extends StatelessWidget {
                           );
                         },
                       );
+                    }
+                  } else {
+                    // user is not a student
+                    Navigator.pop(context);
 
+                    // ignore: use_build_context_synchronously
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Error'),
+                          content: const Text('Its not a student'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
                   }
-
-
-
-                  
-
-
-
-
                 } else {
-                  // user is not a student
+                  // user not found in Firestore
+                  // ignore: use_build_context_synchronously
                   Navigator.pop(context);
 
                   // ignore: use_build_context_synchronously
                   showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Error'),
-                            content: const Text('Its not a student'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Error'),
+                        content: const Text('email does not exist'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('OK'),
+                          ),
+                        ],
                       );
+                    },
+                  );
                 }
-              } else {
-                // user not found in Firestore
-                // ignore: use_build_context_synchronously
-                Navigator.pop(context);
-
-                // ignore: use_build_context_synchronously
-                  showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Error'),
-                            content: const Text('email does not exist'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-              }
-            },
-            child: const Text("Add student"),
-          ),
-        ],
-      );
-    },
-  );
-}
-
+              },
+              child: const Text("Add student"),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   Future<String> getFullNameFromEmail(String email) async {
     var querySnapshot = await FirebaseFirestore.instance
@@ -280,7 +270,6 @@ class Admin extends StatelessWidget {
     }
   }
 
-
   Future<List<String>> getStudentEmailsForAdmin(String adminEmail) async {
     List<String> studentEmails = [];
 
@@ -294,7 +283,7 @@ class Admin extends StatelessWidget {
       studentEmails.add(studentEmail);
     });
     print(adminEmail);
-    print( studentEmails);
+    print(studentEmails);
 
     return studentEmails;
   }
