@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:project/ActivityComparison.dart';
 import 'package:project/AdminHome.dart';
 import 'package:project/StudentHome.dart';
 import 'package:project/main.dart';
@@ -12,7 +13,7 @@ class comparison1_9 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int num1 = 1;
+    int num1 = 2;
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 38, 182, 177),
@@ -60,7 +61,7 @@ class comparison1_9 extends StatelessWidget {
                   } else {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => EComparison1_9()),
+                      MaterialPageRoute(builder: (context) => ACompar()),
                     );
                   }
                 },

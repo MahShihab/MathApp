@@ -56,6 +56,39 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+      - assets/compar/firstCompar1.jpg
+      - assets/compar/firstCompar2.jpg
+      - assets/compar/firstCompar3.jpg
+      
+      - assets/compar/secondCompar1.jpg
+      - assets/compar/secondCompar2.jpg
+      - assets/compar/secondCompar3.jpg
+      
+      - assets/compar/thirdCompar1.jpg
+      - assets/compar/thirdCompar2.jpg
+      - assets/compar/thirdCompar3.jpg
+
+      - assets/compar/fourthCompar1.jpg
+      - assets/compar/fourthCompar2.jpg
+      - assets/compar/fourthCompar3.jpg
+      
+      - assets/compar/fifthCompar1.jpg
+      - assets/compar/fifthCompar2.jpg
+      - assets/compar/fifthCompar3.jpg
+      
+      - assets/compar/sixthCompar1.jpg
+      - assets/compar/sixthCompar2.jpg
+      - assets/compar/sixthCompar3.jpg
+
+      - assets/compar/seventhCompar1.jpg
+      - assets/compar/seventhCompar2.jpg
+      - assets/compar/seventhCompar3.jpg
+      ####################################
+
+
+
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
