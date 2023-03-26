@@ -104,11 +104,26 @@ flutter:
     - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ثمانية نجوم وبالتالي العد.m4a
     - assets/StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء تسعة نجوم وبالتالي العدد .m4a
     - assets/OceanActivity/fishStart.json
-    - assets/OceanActivity/fish2.png
     - assets/OceanActivity/bubbles.json
     - assets/OceanActivity/prize.json
     - assets/OceanActivity/21188-target-hit.json
     - assets/OceanActivity/86023-earn-rewards.json
+    - assets/OceanActivity/divingInOhean.mpeg
+    - assets/OceanActivity/fish0.png
+    - assets/OceanActivity/fish1.png
+    - assets/OceanActivity/fish2.png
+    - assets/OceanActivity/fish3.png
+    - assets/OceanActivity/fish4.png
+    - assets/OceanActivity/fish5.png
+    - assets/OceanActivity/fish6.png
+    - assets/OceanActivity/fish7.png
+    - assets/OceanActivity/fish8.png
+    - assets/OceanActivity/fish9.png
+    - assets/OceanActivity/whatIsTheNymberOfFishs.mp3
+    - assets/OceanActivity/thanksForCountFishs.mp3
+    - assets/29121-wrong.json
+    
+
 
   
 
