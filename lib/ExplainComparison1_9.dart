@@ -168,71 +168,79 @@ class _Comparison1_9State extends State<EComparison1_9> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _buildImage(_imagePaths1[0], _opacityLevel1),
-            _buildImage(_imagePaths1[1], _opacityLevel2),
-            _buildImage(_imagePaths1[2], _opacityLevel3),
-            // SizedBox(height: 20.0),
-          ],
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/background1.jpg'),
+          fit: BoxFit.cover,
         ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: AnimatedOpacity(
-            opacity: _firstButton,
-            duration: Duration(seconds: 1),
-            curve: Curves.easeInOut,
-            child: SizedBox(
-              height: 100,
-              width: 100,
-              child: FloatingActionButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EComparison1_9()),
-                  );
-                },
-                child: Icon(
-                  Icons.replay_outlined,
-                  size: 70,
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildImage(_imagePaths1[0], _opacityLevel1),
+              _buildImage(_imagePaths1[1], _opacityLevel2),
+              _buildImage(_imagePaths1[2], _opacityLevel3),
+              // SizedBox(height: 20.0),
+            ],
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: AnimatedOpacity(
+              opacity: _firstButton,
+              duration: Duration(seconds: 1),
+              curve: Curves.easeInOut,
+              child: SizedBox(
+                height: 100,
+                width: 100,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EComparison1_9()),
+                    );
+                  },
+                  child: Icon(
+                    Icons.replay_outlined,
+                    size: 70,
+                  ),
+                  backgroundColor: Color.fromARGB(255, 193, 244, 54),
+                  shape: CircleBorder(),
                 ),
-                backgroundColor: Color.fromARGB(255, 193, 244, 54),
-                shape: CircleBorder(),
               ),
             ),
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: AnimatedOpacity(
-            opacity: _firstButton,
-            duration: Duration(seconds: 1),
-            curve: Curves.easeInOut,
-            child: SizedBox(
-              height: 100,
-              width: 100,
-              child: FloatingActionButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => comparison1_9()),
-                  );
-                },
-                child: Icon(
-                  Icons.arrow_circle_down_outlined,
-                  size: 70,
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: AnimatedOpacity(
+              opacity: _firstButton,
+              duration: Duration(seconds: 1),
+              curve: Curves.easeInOut,
+              child: SizedBox(
+                height: 100,
+                width: 100,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => comparison1_9()),
+                    );
+                  },
+                  child: Icon(
+                    Icons.arrow_circle_down_outlined,
+                    size: 70,
+                  ),
+                  backgroundColor: Color.fromARGB(255, 193, 244, 54),
+                  shape: CircleBorder(),
                 ),
-                backgroundColor: Color.fromARGB(255, 193, 244, 54),
-                shape: CircleBorder(),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
