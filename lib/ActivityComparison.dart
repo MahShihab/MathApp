@@ -4,6 +4,9 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import 'Comparison1_9.dart';
+import 'ExplainComparison1_9.dart';
+
 class ACompar extends StatefulWidget {
   const ACompar({Key? key}) : super(key: key);
 
@@ -13,48 +16,36 @@ class ACompar extends StatefulWidget {
 
 class _AComparState extends State<ACompar> with TickerProviderStateMixin {
   List<String> options = ['>', '<', '='];
+
   // late int correctIndex = Random()
   //     .nextInt(options.length - 1); // subtract 1 to exclude the empty string
   late int correctIndex = 0;
   int? droppedIndex;
-
-  var _isShow = true;
-  var _isShow2 = true;
+  String imageOne = '';
+  String imageTwo = '';
+  int playCount = 0;
 
   late AnimationController animationController;
-  late Animation<Offset> animation;
   late AnimationController animationController2;
-  late Animation<Offset> animation2;
 
   @override
   void initState() {
     super.initState();
     // Assign a random index for the correct answer
     correctIndex = 0;
+    imageOne = 'assets/4.gif';
+    imageTwo = 'assets/2.gif';
+    playCount = 0;
 
     animationController = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    animationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _isShow = false;
-        // Update the state of the widget to remove the LottieBuilder
-        setState(() {});
-      }
-    });
 
     animationController2 = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
-    animationController2.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        // Update the state of the widget to remove the LottieBuilder
-        _isShow2 = false;
-        setState(() {});
-      }
-    });
   }
 
   final TextStyle textStyle = const TextStyle(fontSize: 40);
@@ -128,7 +119,7 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                   children: [
                     // const SizedBox(width: 90),
                     Image.asset(
-                      'assets/4.gif',
+                      imageOne,
                       height: 100,
                       width: 100,
                     ),
@@ -181,14 +172,59 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                                     options[data] = options[correctIndex];
                                   });
 
-                                  animationController.forward();
+                                  animationController.forward().then((value) =>
+                                      animationController.reverse());
+
+                                  playCount++;
+
+                                  print(playCount);
+
+                                  if (playCount == 1) {
+                                    Future.delayed(Duration(milliseconds: 1500),
+                                        () {
+                                      setState(() {
+                                        // Reset the game
+                                        imageOne = 'assets/3.gif';
+                                        imageTwo = 'assets/3.gif';
+                                        droppedIndex = null;
+                                        correctIndex = 2;
+                                      });
+                                    });
+                                  }
+
+                                  if (playCount == 2) {
+                                    Future.delayed(Duration(milliseconds: 1500),
+                                        () {
+                                      setState(() {
+                                        // Reset the game
+                                        imageOne = 'assets/5.gif';
+                                        imageTwo = 'assets/8.gif';
+                                        droppedIndex = null;
+                                        correctIndex = 1;
+                                      });
+                                    });
+                                  }
+
+                                  if (playCount == 3) {
+                                    Future.delayed(Duration(milliseconds: 2000),
+                                        () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                comparison1_9()),
+                                      );
+                                    });
+                                  }
 
                                   // ScaffoldMessenger.of(context).showSnackBar(
                                   //   SnackBar(content: Text('Correct!')),
                                   // );
                                 }
                               } else {
-                                animationController2.forward();
+                                animationController2.forward().then(
+                                    (value) => animationController2.reverse());
+                                // animationController2.reverse();
                               }
                             },
                           ),
@@ -196,7 +232,7 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                       ],
                     ),
                     Image.asset(
-                      'assets/2.gif',
+                      imageTwo,
                       height: 100,
                       width: 100,
                     )
@@ -205,25 +241,19 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
               ),
               Stack(
                 children: [
-                  Visibility(
-                    visible: _isShow,
-                    child: Lottie.asset(
-                      'assets/lotties/correct.json',
-                      width: 400,
-                      height: 250,
-                      controller: animationController,
-                      animate: true,
-                    ),
+                  Lottie.asset(
+                    'assets/lotties/correct.json',
+                    width: 400,
+                    height: 250,
+                    controller: animationController,
+                    animate: true,
                   ),
-                  Visibility(
-                    visible: _isShow ? _isShow2 : false,
-                    child: Lottie.asset(
-                      'assets/lotties/wrong.json',
-                      width: 400,
-                      height: 200,
-                      controller: animationController2,
-                      animate: true,
-                    ),
+                  Lottie.asset(
+                    'assets/lotties/wrong.json',
+                    width: 400,
+                    height: 200,
+                    controller: animationController2,
+                    animate: true,
                   ),
                 ],
               ),
