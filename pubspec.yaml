@@ -70,6 +70,7 @@ flutter:
       - assets/9.png
 
       - assets/background1.jpg
+      - assets/background2.jpg
 
       - assets/lotties/correct.json
       - assets/lotties/wrong.json
@@ -99,9 +100,9 @@ flutter:
       - assets/compar/sixthCompar2.jpg
       - assets/compar/sixthCompar3.jpg
 
-      - assets/compar/seventhCompar1.jpg
-      - assets/compar/seventhCompar2.jpg
-      - assets/compar/seventhCompar3.jpg
+      - assets/compar/SeventhCompar1.jpg
+      - assets/compar/SeventhCompar2.jpg
+      - assets/compar/SeventhCompar3.jpg
       ####################################
 
 

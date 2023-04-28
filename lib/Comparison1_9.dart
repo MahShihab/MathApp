@@ -7,13 +7,14 @@ import 'package:project/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Data.dart';
 import 'ExplainComparison1_9.dart';
+import 'GameCompar.dart';
 
 class comparison1_9 extends StatelessWidget {
   const comparison1_9({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    int num1 = 2;
+    int num1 = 3;
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 38, 182, 177),
@@ -122,7 +123,7 @@ class comparison1_9 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EComparison1_9()),
+                            builder: (context) => GCompar()),
                       );
                     }
                   },

@@ -1,11 +1,6 @@
-import 'dart:js';
-import 'dart:math';
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
 import 'Comparison1_9.dart';
-import 'ExplainComparison1_9.dart';
 
 class ACompar extends StatefulWidget {
   const ACompar({Key? key}) : super(key: key);

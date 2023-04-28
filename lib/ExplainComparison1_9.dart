@@ -29,29 +29,29 @@ class _Comparison1_9State extends State<EComparison1_9> {
     "assets/compar/secondCompar3.jpg",
   ];
   List<String> _imagePaths3 = [
-    "assets/compar/firstCompar1.jpg",
-    "assets/compar/firstCompar2.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/compar/thirdCompar1.jpg",
+    "assets/compar/thirdCompar2.jpg",
+    "assets/compar/thirdCompar3.jpg",
   ];
   List<String> _imagePaths4 = [
-    "assets/compar/secondCompar1.jpg",
-    "assets/compar/secondCompar2.jpg",
-    "assets/compar/secondCompar3.jpg",
+    "assets/compar/fourthCompar1.jpg",
+    "assets/compar/fourthCompar2.jpg",
+    "assets/compar/fourthCompar3.jpg",
   ];
   List<String> _imagePaths5 = [
-    "assets/compar/firstCompar1.jpg",
-    "assets/compar/firstCompar2.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/compar/fifthCompar1.jpg",
+    "assets/compar/fifthCompar2.jpg",
+    "assets/compar/fifthCompar3.jpg",
   ];
   List<String> _imagePaths6 = [
-    "assets/compar/secondCompar1.jpg",
-    "assets/compar/secondCompar2.jpg",
-    "assets/compar/secondCompar3.jpg",
+    "assets/compar/sixthCompar1.jpg",
+    "assets/compar/sixthCompar2.jpg",
+    "assets/compar/sixthCompar3.jpg",
   ];
   List<String> _imagePaths7 = [
-    "assets/compar/firstCompar1.jpg",
-    "assets/compar/firstCompar2.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/compar/SeventhCompar1.jpg",
+    "assets/compar/SeventhCompar2.jpg",
+    "assets/compar/SeventhCompar3.jpg",
   ];
   int _currentImageIndex = 0;
 
@@ -91,6 +91,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
 
       for (int i = 0; i < 4; i++) {
         await Future.delayed(Duration(seconds: 2));
+        print(_imagePaths1);
         setState(() {
           _currentImageIndex = i;
           if (i == 0) {
@@ -171,7 +172,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/background1.jpg'),
+          image: AssetImage('assets/background2.jpg'),
           fit: BoxFit.cover,
         ),
       ),
