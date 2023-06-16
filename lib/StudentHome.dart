@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project/profile.dart';
 import 'Comparison1_9.dart';
 import 'ExplainComparison1_9.dart';
+import 'Sum1_9.dart';
 
 class Student extends StatefulWidget {
   Student({Key? key}) : super(key: key);
@@ -32,7 +33,13 @@ class _StudentState extends State<Student> {
         backgroundColor: Colors.teal,
         elevation: 4,
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/background1.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: [
             Divider(),
@@ -247,7 +254,7 @@ class ExpandableWidget3 extends StatefulWidget {
 
 class _ExpandableWidgetState3 extends State<ExpandableWidget3> {
   bool _isExpanded = false;
-  int level = 2;
+  int level = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -260,7 +267,7 @@ class _ExpandableWidgetState3 extends State<ExpandableWidget3> {
           if (level >= 3) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyApp()),
+              MaterialPageRoute(builder: (context) => Sum1_9()),
             );
           } else if (_isExpanded == true) {
             _isExpanded = false;
