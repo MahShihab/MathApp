@@ -13,42 +13,50 @@ class ESum1_9State extends State<ESum1_9> {
   double _opacityLevel1 = 0.0;
   double _opacityLevel2 = 0.0;
   double _opacityLevel3 = 0.0;
+  double _opacityLevel4 = 0.0;
   double _firstButton = 0.0;
 
   List<String> _imagePaths1 = [
     "assets/compar/firstCompar1.jpg",
     "assets/compar/firstCompar2.jpg",
     "assets/compar/firstCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   List<String> _imagePaths2 = [
     "assets/compar/secondCompar1.jpg",
     "assets/compar/secondCompar2.jpg",
     "assets/compar/secondCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   List<String> _imagePaths3 = [
     "assets/compar/thirdCompar1.jpg",
     "assets/compar/thirdCompar2.jpg",
     "assets/compar/thirdCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   List<String> _imagePaths4 = [
     "assets/compar/fourthCompar1.jpg",
     "assets/compar/fourthCompar2.jpg",
     "assets/compar/fourthCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   List<String> _imagePaths5 = [
     "assets/compar/fifthCompar1.jpg",
     "assets/compar/fifthCompar2.jpg",
     "assets/compar/fifthCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   List<String> _imagePaths6 = [
     "assets/compar/sixthCompar1.jpg",
     "assets/compar/sixthCompar2.jpg",
     "assets/compar/sixthCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   List<String> _imagePaths7 = [
     "assets/compar/SeventhCompar1.jpg",
     "assets/compar/SeventhCompar2.jpg",
     "assets/compar/SeventhCompar3.jpg",
+    "assets/compar/firstCompar3.jpg",
   ];
   int _currentImageIndex = 0;
 
@@ -86,7 +94,7 @@ class ESum1_9State extends State<ESum1_9> {
         currentImagePaths = _imagePaths7;
       }
 
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 5; i++) {
         await Future.delayed(Duration(seconds: 2));
         print(_imagePaths1);
         setState(() {
@@ -95,19 +103,25 @@ class ESum1_9State extends State<ESum1_9> {
             _opacityLevel1 = 1.0;
             _opacityLevel2 = 0.0;
             _opacityLevel3 = 0.0;
+            _opacityLevel4 = 0.0;
           } else if (i == 1) {
             // _opacityLevel1 = 0.0;
             _opacityLevel3 = 1.0;
             _opacityLevel2 = 0.0;
+            _opacityLevel4 = 0.0;
           } else if (i == 2) {
             // _opacityLevel1 = 0.0;
             // _opacityLevel2 = 0.0;
             _opacityLevel2 = 1.0;
+            _opacityLevel4 = 0.0;
+          } else if (i == 3) {
+            _opacityLevel4 = 1.0;
           } else {
             if (currentImageSet != 7) {
               _opacityLevel1 = 0.0;
               _opacityLevel2 = 0.0;
               _opacityLevel3 = 0.0;
+              _opacityLevel4 = 0.0;
             }
             if (currentImageSet == 7) {
               _firstButton = 1.0;
@@ -182,6 +196,7 @@ class ESum1_9State extends State<ESum1_9> {
               _buildImage(_imagePaths1[0], _opacityLevel1),
               _buildImage(_imagePaths1[1], _opacityLevel2),
               _buildImage(_imagePaths1[2], _opacityLevel3),
+              _buildImage(_imagePaths1[3], _opacityLevel4),
               // SizedBox(height: 20.0),
             ],
           ),

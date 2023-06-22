@@ -10,6 +10,7 @@ import 'Data.dart';
 import 'ExplainComparison1_9.dart';
 import 'ExplainSum1_9.dart';
 import 'GameCompar.dart';
+import 'GameSaum1_9.dart';
 
 class Sum1_9 extends StatelessWidget {
   const Sum1_9({Key? key}) : super(key: key);
@@ -125,7 +126,7 @@ class Sum1_9 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => GCompar()),
+                            builder: (context) => GSum1_9()),
                       );
                     }
                   },

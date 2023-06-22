@@ -25,6 +25,7 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
   // Current equation and correct answer
   late String _currentEquation;
   late int _correctAnswer;
+  late String theCave;
 
   // List of answers to display on doors
   List<int> _answers = [];
@@ -44,6 +45,8 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
+    theCave = 'assets/Cave.jpg';
 
     animationController = AnimationController(
       duration: const Duration(milliseconds: 1000),
@@ -85,6 +88,10 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
       } else {
         setState(() {
           _moveDoors(answer);
+          _currentRound++;
+          if (_currentRound == 2) {
+            theCave = 'assets/Cave2.jpg';
+          }
           // Show correct animation
           animationController
               .forward()
@@ -104,9 +111,6 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
             _doorMarginsright[1] = 0.0;
             _doorMarginsright[2] = 0.0;
           });
-        });
-        setState(() {
-          _currentRound++;
         });
       }
     } else {
@@ -131,251 +135,290 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff4f4f4),
-      body: Padding(
-        padding: const EdgeInsets.all(0.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (!_gameOver) ...[
-              Text(
-                'Round $_currentRound',
-                style: TextStyle(fontSize: 24),
-              ),
-              SizedBox(height: 16),
-              Text(
-                _currentEquation,
-                style: TextStyle(fontSize: 32),
-              ),
-              SizedBox(height: 32),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    width: 100, // Set the desired width value
-                    height: 200, // Set the desired height value
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        AnimatedPositioned(
-                          duration: Duration(milliseconds: 500),
-                          left: _doorMarginsleft[0],
-                          child: GestureDetector(
-                            onTap: () => _onDoorTap(_answers[0]),
-                            child: Container(
-                              width: 100,
-                              height: 150,
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/door.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        AnimatedPositioned(
-                          duration: Duration(milliseconds: 500),
-                          left: _doorMarginsright[0],
-                          child: GestureDetector(
-                            onTap: () => _onDoorTap(_answers[0]),
-                            child: Container(
-                              width: 100,
-                              height: 150,
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/door.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () => _onDoorTap(_answers[0]),
-                          child: Container(
-                            width: 100, // Set the desired width value
-                            child: Center(
-                              child: Text(
-                                Myans[_answers[0]],
-                                style: TextStyle(fontSize: 80),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(theCave),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (!_gameOver) ...[
+                Text(
+                  'المرحلة  ${Myans[_currentRound]}',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
-                  Container(
-                    width: 100, // Set the desired width value
-                    height: 200, // Set the desired height value
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                    ),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        AnimatedPositioned(
-                          duration: Duration(milliseconds: 500),
-                          left: _doorMarginsleft[1],
-                          child: GestureDetector(
-                            onTap: () => _onDoorTap(_answers[1]),
-                            child: Container(
-                              width: 100,
-                              height: 150,
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/door.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        AnimatedPositioned(
-                          duration: Duration(milliseconds: 500),
-                          left: _doorMarginsright[1],
-                          child: GestureDetector(
-                            onTap: () => _onDoorTap(_answers[1]),
-                            child: Container(
-                              width: 100,
-                              height: 150,
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/door.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () => _onDoorTap(_answers[1]),
-                          child: Container(
-                            width: 100, // Set the desired width value
-                            child: Center(
-                              child: Text(
-                                Myans[_answers[1]],
-                                style: TextStyle(fontSize: 80),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: 100, // Set the desired width value
-                    height: 200, // Set the desired height value
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                    ),
-
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        AnimatedPositioned(
-                          duration: Duration(milliseconds: 500),
-                          left: _doorMarginsleft[2],
-                          child: GestureDetector(
-                            onTap: () => _onDoorTap(_answers[2]),
-                            child: Container(
-                              width: 100,
-                              height: 150,
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/door.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        AnimatedPositioned(
-                          duration: Duration(milliseconds: 500),
-                          left: _doorMarginsright[2],
-                          child: GestureDetector(
-                            onTap: () => _onDoorTap(_answers[2]),
-                            child: Container(
-                              width: 100,
-                              height: 150,
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/door.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () => _onDoorTap(_answers[2]),
-                          child: Container(
-                            width: 100, // Set the desired width value
-                            child: Center(
-                              child: Text(
-                                Myans[_answers[2]],
-                                style: TextStyle(fontSize: 80),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-            if (_gameOver) ...[
-              Lottie.asset(
-                'assets/lotties/treasure.json',
-                width: 200,
-                height: 200,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(height: 16),
-              Text(
-                "Congratulations! You completed all levels.",
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Sum1_9()),
-                  );
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(Size(150, 50)),
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromARGB(255, 209, 19, 19)),
                 ),
-                child: Icon(Icons.settings_backup_restore_rounded),
-              )
-            ],
-            if (!_gameOver) ...[
-              Stack(
-                children: [
-                  Lottie.asset(
-                    'assets/lotties/correct.json',
-                    width: 400,
-                    height: 250,
-                    controller: animationController,
-                    animate: true,
+                SizedBox(height: 16),
+                Text(
+                  _currentEquation,
+                  style: TextStyle(
+                    fontSize: 32,
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
-                  Lottie.asset(
-                    'assets/lotties/wrong.json',
-                    width: 400,
-                    height: 200,
-                    controller: animationController2,
-                    animate: true,
+                ),
+                SizedBox(height: 32),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 100, // Set the desired width value
+                      height: 200, // Set the desired height value
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 4, 139, 33),
+                          width: 1.0,
+                        ),
+                      ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            left: _doorMarginsleft[0],
+                            child: GestureDetector(
+                              onTap: () => _onDoorTap(_answers[0]),
+                              child: Container(
+                                width: 100,
+                                height: 150,
+                                alignment: Alignment.center,
+                                child: Image.asset(
+                                  'assets/door.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            left: _doorMarginsright[0],
+                            child: GestureDetector(
+                              onTap: () => _onDoorTap(_answers[0]),
+                              child: Container(
+                                width: 100,
+                                height: 150,
+                                alignment: Alignment.center,
+                                child: Image.asset(
+                                  'assets/door.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => _onDoorTap(_answers[0]),
+                            child: Container(
+                              width: 100, // Set the desired width value
+                              child: Center(
+                                child: Text(
+                                  Myans[_answers[0]],
+                                  style: TextStyle(
+                                    fontSize: 80,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 100, // Set the desired width value
+                      height: 200, // Set the desired height value
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 4, 139, 33),
+                          width: 1.0,
+                        ),
+                      ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            left: _doorMarginsleft[1],
+                            child: GestureDetector(
+                              onTap: () => _onDoorTap(_answers[1]),
+                              child: Container(
+                                width: 100,
+                                height: 150,
+                                alignment: Alignment.center,
+                                child: Image.asset(
+                                  'assets/door.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            left: _doorMarginsright[1],
+                            child: GestureDetector(
+                              onTap: () => _onDoorTap(_answers[1]),
+                              child: Container(
+                                width: 100,
+                                height: 150,
+                                alignment: Alignment.center,
+                                child: Image.asset(
+                                  'assets/door.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => _onDoorTap(_answers[1]),
+                            child: Container(
+                              width: 100, // Set the desired width value
+                              child: Center(
+                                child: Text(
+                                  Myans[_answers[1]],
+                                  style: TextStyle(
+                                    fontSize: 80,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 100, // Set the desired width value
+                      height: 200, // Set the desired height value
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 4, 139, 33),
+                          width: 1.0,
+                        ),
+                      ),
+
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            left: _doorMarginsleft[2],
+                            child: GestureDetector(
+                              onTap: () => _onDoorTap(_answers[2]),
+                              child: Container(
+                                width: 100,
+                                height: 150,
+                                alignment: Alignment.center,
+                                child: Image.asset(
+                                  'assets/door.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          AnimatedPositioned(
+                            duration: Duration(milliseconds: 500),
+                            left: _doorMarginsright[2],
+                            child: GestureDetector(
+                              onTap: () => _onDoorTap(_answers[2]),
+                              child: Container(
+                                width: 100,
+                                height: 150,
+                                alignment: Alignment.center,
+                                child: Image.asset(
+                                  'assets/door.png',
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => _onDoorTap(_answers[2]),
+                            child: Container(
+                              width: 100, // Set the desired width value
+                              child: Center(
+                                child: Text(
+                                  Myans[_answers[2]],
+                                  style: TextStyle(
+                                    fontSize: 80,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+              if (_gameOver) ...[
+                Row(
+                  children: [
+                    Lottie.asset(
+                      'assets/lotties/treasure.json',
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
+                    Lottie.asset(
+                      'assets/lotties/treasure.json',
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
+                  ],
+                ),
+                // Lottie.asset(
+                //   'assets/lotties/treasure.json',
+                //   width: 200,
+                //   height: 200,
+                //   fit: BoxFit.cover,
+                // ),
+                SizedBox(height: 16),
+                Text(
+                  "أحسنت لقد أتممت جميع المراحل",
+                  style: TextStyle(
+                      fontSize: 24, color: Color.fromARGB(255, 255, 255, 255)),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 50),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Sum1_9()),
+                    );
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(Size(150, 50)),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Color.fromARGB(255, 209, 19, 19)),
                   ),
-                ],
-              ),
+                  child: Icon(Icons.settings_backup_restore_rounded),
+                )
+              ],
+              if (!_gameOver) ...[
+                Stack(
+                  children: [
+                    Lottie.asset(
+                      'assets/lotties/correct.json',
+                      width: 400,
+                      height: 250,
+                      controller: animationController,
+                      animate: true,
+                    ),
+                    Lottie.asset(
+                      'assets/lotties/wrong.json',
+                      width: 400,
+                      height: 200,
+                      controller: animationController2,
+                      animate: true,
+                    ),
+                  ],
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );

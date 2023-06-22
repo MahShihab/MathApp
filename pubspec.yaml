@@ -73,6 +73,8 @@ flutter:
       - assets/background2.jpg
 
       - assets/door.png
+      - assets/Cave.jpg
+      - assets/Cave2.jpg
 
       - assets/lotties/correct.json
       - assets/lotties/wrong.json
