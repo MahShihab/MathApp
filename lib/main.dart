@@ -11,8 +11,6 @@ import 'firebase_options.dart';
 
 // ...
 
-
-
 // void main() => runApp(MyApp());
 void main() async {
   // Initialize Firebase
@@ -56,97 +54,136 @@ class MyHomePage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               fit: BoxFit.cover,
             ),
-             Padding(padding: const EdgeInsets.symmetric(horizontal: 20),
-            child:
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 350),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Email Address',
-                    hintText: 'بريدك الاكتروني',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 1,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 350),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Email Address',
+                      hintText: 'بريدك الاكتروني',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Color.fromARGB(0, 49, 2, 38),
-                        width: 1,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(0, 49, 2, 38),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      borderRadius: BorderRadius.circular(8),
                     ),
+                    controller: emailController,
                   ),
-                  controller: emailController,
-                ),
-                const SizedBox(height: 10),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'أدخل كلمة المرور',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        width: 1,
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      hintText: 'أدخل كلمة المرور',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Color(0x00000000),
-                        width: 1,
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color(0x00000000),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      borderRadius: BorderRadius.circular(8),
                     ),
+                    controller: passwordController,
                   ),
-                  controller: passwordController,
-                ),
-                const SizedBox(height: 25),
-                ElevatedButton(
-                  onPressed: () async {
-                    final String email = emailController.text;
-                    final String password = passwordController.text;
+                  const SizedBox(height: 25),
+                  ElevatedButton(
+                    onPressed: () async {
+                      final String email = emailController.text;
+                      final String password = passwordController.text;
 
-                    final usersRef = FirebaseFirestore.instance.collection('users');
-                    // check if email already exists in database
-                    final querySnapshot = await usersRef.where('email', isEqualTo: email).get();
+                      final usersRef =
+                          FirebaseFirestore.instance.collection('users');
+                      // check if email already exists in database
+                      final querySnapshot =
+                          await usersRef.where('email', isEqualTo: email).get();
 
-                    
+                      if (querySnapshot.docs.isNotEmpty) {
+                        // email already exists, get the type of user
+                        final userPass =
+                            querySnapshot.docs.first.get('password');
+                        if (userPass == password) {
+                          final userType = querySnapshot.docs.first.get('type');
+                          User.email = email;
+                          print('User type: $userType');
+                          if (userType == "admin") {
+                            // ignore: use_build_context_synchronously
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Admin()),
+                            );
+                          } else {
+                            
+                            final usersRef = FirebaseFirestore.instance
+                                .collection('StudentProgres');
+                            // check if email already exists in database
+                            final querySnapshot = await usersRef
+                                .where('StudentEmail', isEqualTo: email)
+                                .get();
 
-                    if (querySnapshot.docs.isNotEmpty) {
-                      // email already exists, get the type of user
-                      final userPass = querySnapshot.docs.first.get('password');
-                      if(userPass == password){
-                        final userType = querySnapshot.docs.first.get('type');
-                        User.email = email;
-                        print('User type: $userType');
-                        if(userType == "admin"){
-                        // ignore: use_build_context_synchronously
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Admin()),
-                        );
-                      }
-                      else{
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Student()),
-                        );
+                            final studentLevel =
+                                querySnapshot.docs.first.get('Level');
+                            final studentInLevel =
+                                querySnapshot.docs.first.get('InLevel');
+                            User.level = studentLevel;
+                            User.Inlevel = studentInLevel;
 
-                      }
-                      }
-                      else{//incorrect password
+                            print(User.level);
+                            print(User.Inlevel);
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Student()),
+                            );
+                          }
+                        } else {
+                          //incorrect password
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('Error'),
+                                content: const Text('Incorrect password'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('OK'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                        // proceed with login or show appropriate message
+                      } else {
+                        // email does not exist, show appropriate message
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
                               title: const Text('Error'),
-                              content: const Text('Incorrect password'),
+                              content: const Text('email does not exist'),
                               actions: <Widget>[
                                 TextButton(
                                   onPressed: () {
@@ -154,92 +191,79 @@ class MyHomePage extends StatelessWidget {
                                   },
                                   child: const Text('OK'),
                                 ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SignUp()),
+                                    );
+                                  },
+                                  child: const Text('Create new account'),
+                                ),
                               ],
                             );
                           },
                         );
                       }
-                      // proceed with login or show appropriate message
-                    } else {
-                      // email does not exist, show appropriate message
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Error'),
-                            content: const Text('email does not exist'),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('OK'),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) =>  SignUp()),
-                                  );
-                                },
-                                child: const Text('Create new account'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    }
-                  },
+                    },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                         Colors.black, // Set the desired background color here
                       ),
-                      minimumSize: MaterialStateProperty.all<Size>(const Size(100, 50)),
+                      minimumSize:
+                          MaterialStateProperty.all<Size>(const Size(100, 50)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.cyan),
-                    ),
-                  ),
-                ),
-                  child:
-                    const Text('دخول',style: TextStyle(
-                        fontSize: 20,
-                        color: Color.fromARGB(255, 253, 255, 253),
-                        fontStyle: FontStyle.italic,
-                        fontFamily: 'casual',
-                        letterSpacing: 5),),
-                ),
-                const SizedBox(height: 30),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  SignUp()),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromARGB(255, 53, 214, 139), // Set the desired background color here
-                    ),
-                    minimumSize: MaterialStateProperty.all<Size>(const Size(100, 50)),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.cyan),
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.cyan),
+                        ),
                       ),
                     ),
+                    child: const Text(
+                      'دخول',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 253, 255, 253),
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'casual',
+                          letterSpacing: 5),
+                    ),
                   ),
-                  child:
-                  const Text('انشاء حساب',style: TextStyle(
-                      fontSize: 20,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic,
-                      fontFamily: 'casual',
-                      letterSpacing: 5),),
-                ),
-              ],
-            ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUp()),
+                      );
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Color.fromARGB(255, 53, 214,
+                            139), // Set the desired background color here
+                      ),
+                      minimumSize:
+                          MaterialStateProperty.all<Size>(const Size(100, 50)),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.cyan),
+                        ),
+                      ),
+                    ),
+                    child: const Text(
+                      'انشاء حساب',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'casual',
+                          letterSpacing: 5),
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),

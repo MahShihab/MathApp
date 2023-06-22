@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'Data.dart';
 import 'Sum1_9.dart';
 
 class ESum1_9 extends StatefulWidget {
@@ -236,7 +238,24 @@ class ESum1_9State extends State<ESum1_9> {
                 height: 100,
                 width: 100,
                 child: FloatingActionButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    final usersRef =
+                        FirebaseFirestore.instance.collection('StudentProgres');
+                    final querySnapshot = await usersRef
+                        .where('StudentEmail', isEqualTo: User.email)
+                        .get();
+
+                    if (querySnapshot.docs.isNotEmpty) {
+                      // User with given email found in Firestore
+                      final userDoc = querySnapshot.docs.first;
+
+                      await usersRef.doc(userDoc.id).update({
+                        'InLevel': 2,
+                      });
+                      User.Inlevel = 2;
+                    } else {
+                      print("error");
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Sum1_9()),

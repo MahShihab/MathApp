@@ -14,7 +14,8 @@ class comparison1_9 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int num1 = 3;
+    int num1 = User.Inlevel;
+    int num2 = User.level;
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 38, 182, 177),
@@ -30,14 +31,14 @@ class comparison1_9 extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     // Handle container 1 click
-                    if (num1 < 1) {
-                      print("klndslkasndalndsklndalksnd");
-                    } else {
+                    if (num1 >= 1 || num2 > 2) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => EComparison1_9()),
                       );
+                    } else {
+                      print("klndslkasndalndsklndalksnd");
                     }
                   },
                   child: Container(
@@ -54,19 +55,19 @@ class comparison1_9 extends StatelessWidget {
                         ),
                       ],
                     ),
-                    height: num1 < 1 ? 100 : 200,
-                    width: num1 < 1 ? 100 : null,
-                    child: num1 < 1
-                        ? Icon(
-                            Icons.star_border,
-                            size: 50,
-                          )
-                        : ClipRRect(
+                    height: num1 >= 1 || num2 > 2 ? 200 : 100,
+                    width: num1 >= 1 || num2 > 2 ? null : 100,
+                    child: num1 >= 1 || num2 > 2
+                        ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
                             child: Image.network(
                               'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
                               fit: BoxFit.cover,
                             ),
+                          )
+                        : Icon(
+                            Icons.star_border,
+                            size: 50,
                           ),
                   ),
                 ),
@@ -74,13 +75,14 @@ class comparison1_9 extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     // Handle container 1 click
-                    if (num1 < 2) {
-                      print("klndslkasndalndsklndalksnd");
-                    } else {
+                    if (num1 >= 2 || num2 > 2) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ACompar()),
+                        MaterialPageRoute(
+                            builder: (context) => ACompar()),
                       );
+                    } else {
+                      print("klndslkasndalndsklndalksnd");
                     }
                   },
                   child: Container(
@@ -97,19 +99,19 @@ class comparison1_9 extends StatelessWidget {
                         ),
                       ],
                     ),
-                    height: num1 < 2 ? 100 : 200,
-                    width: num1 < 2 ? 100 : null,
-                    child: num1 < 2
-                        ? Icon(
-                            Icons.star_border,
-                            size: 50,
-                          )
-                        : ClipRRect(
+                    height: num1 >= 2 || num2 > 2 ? 200 : 100,
+                    width: num1 >= 2 || num2 > 2 ? null : 100,
+                    child: num1 >= 2 || num2 > 2
+                        ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
                             child: Image.network(
                               'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
                               fit: BoxFit.cover,
                             ),
+                          )
+                        : Icon(
+                            Icons.star_border,
+                            size: 50,
                           ),
                   ),
                 ),
@@ -117,14 +119,14 @@ class comparison1_9 extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     // Handle container 1 click
-                    if (num1 < 3) {
-                      print("klndslkasndalndsklndalksnd");
-                    } else {
+                    if (num1 == 3 || num2 > 2) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => GCompar()),
                       );
+                    } else {
+                      print("klndslkasndalndsklndalksnd");
                     }
                   },
                   child: Container(
@@ -141,19 +143,19 @@ class comparison1_9 extends StatelessWidget {
                         ),
                       ],
                     ),
-                    height: num1 < 3 ? 100 : 200,
-                    width: num1 < 3 ? 100 : null,
-                    child: num1 < 3
-                        ? Icon(
-                            Icons.star_border,
-                            size: 50,
-                          )
-                        : ClipRRect(
+                    height: num1 == 3 || num2 > 2 ? 200 : 100,
+                    width: num1 == 3 || num2 > 2 ? null : 100,
+                    child: num1 == 3 || num2 > 2
+                        ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
                             child: Image.network(
                               'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
                               fit: BoxFit.cover,
                             ),
+                          )
+                        : Icon(
+                            Icons.star_border,
+                            size: 50,
                           ),
                   ),
                 ),

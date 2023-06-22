@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'dart:math';
 import 'dart:async';
 
+import 'Data.dart';
 import 'Sum1_9.dart';
 
 class GSum1_9 extends StatefulWidget {
@@ -18,11 +20,11 @@ class _GSum1_9State extends State<GSum1_9> with TickerProviderStateMixin {
   // Possible equations and answers
   final List<Map<String, dynamic>> _equations = [
     {'equation': '٢ + ٤ ', 'answer': 6},
-    {'equation': '٣ + ١ ', 'answer': 4},
+    {'equation': '٣ + ؟؟ = ٤', 'answer': 1},
     {'equation': '٥ + ٣ ', 'answer': 8},
-    {'equation': '٩ + ٠ ', 'answer': 9},
+    {'equation': '٩ + ؟؟ = ٩', 'answer': 0},
     {'equation': '٧ + ١ ', 'answer': 8},
-    {'equation': '٨ + ١ ', 'answer': 9},
+    {'equation': '٨ + ؟؟ = ٩', 'answer': 1},
   ];
 
   // Current equation and correct answer
@@ -379,7 +381,26 @@ class _GSum1_9State extends State<GSum1_9> with TickerProviderStateMixin {
                 ),
                 SizedBox(height: 50),
                 ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    final usersRef =
+                        FirebaseFirestore.instance.collection('StudentProgres');
+                    final querySnapshot = await usersRef
+                        .where('StudentEmail', isEqualTo: User.email)
+                        .get();
+
+                    if (querySnapshot.docs.isNotEmpty) {
+                      // User with given email found in Firestore
+                      final userDoc = querySnapshot.docs.first;
+
+                      await usersRef.doc(userDoc.id).update({
+                        'InLevel': 1,
+                        'Level':4,
+                      });
+                      User.Inlevel = 1;
+                      User.level = 4;
+                    } else {
+                      print("error");
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Sum1_9()),

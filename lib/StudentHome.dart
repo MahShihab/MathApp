@@ -3,6 +3,7 @@ import 'package:project/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project/profile.dart';
 import 'Comparison1_9.dart';
+import 'Data.dart';
 import 'ExplainComparison1_9.dart';
 import 'Sum1_9.dart';
 
@@ -124,7 +125,7 @@ class ExpandableWidget extends StatefulWidget {
 
 class _ExpandableWidgetState extends State<ExpandableWidget> {
   bool _isExpanded = false;
-  int level = 1;
+  int level = User.level;
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +135,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          if (level >= 2) {
+          if (level >= 1) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MyApp()),
@@ -189,7 +190,7 @@ class ExpandableWidget2 extends StatefulWidget {
 
 class _ExpandableWidgetState2 extends State<ExpandableWidget2> {
   bool _isExpanded = false;
-  int level = 2;
+  int level = User.level;
 
   @override
   Widget build(BuildContext context) {
@@ -254,7 +255,7 @@ class ExpandableWidget3 extends StatefulWidget {
 
 class _ExpandableWidgetState3 extends State<ExpandableWidget3> {
   bool _isExpanded = false;
-  int level = 3;
+  int level = User.level;
 
   @override
   Widget build(BuildContext context) {
@@ -319,7 +320,7 @@ class ExpandableWidget4 extends StatefulWidget {
 
 class _ExpandableWidgetState4 extends State<ExpandableWidget4> {
   bool _isExpanded = false;
-  int level = 2;
+  int level = User.level;
 
   @override
   Widget build(BuildContext context) {

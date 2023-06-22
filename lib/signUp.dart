@@ -290,6 +290,12 @@ class SignUp extends StatelessWidget {
                         'type': userType.value,
                       });
 
+                      FirebaseFirestore.instance.collection('StudentProgres').add({
+                        'email': email,
+                        'Level': 0,
+                        'InLevel': 0,
+                      });
+
                       print(email + password + confirmPassword + name);
 
                       Navigator.push(

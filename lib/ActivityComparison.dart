@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'Comparison1_9.dart';
+import 'Data.dart';
 
 class ACompar extends StatefulWidget {
   const ACompar({Key? key}) : super(key: key);
@@ -167,8 +169,8 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                                     options[data] = options[correctIndex];
                                   });
 
-                                  animationController.forward().then((value) =>
-                                      animationController.reverse());
+                                  animationController.forward().then(
+                                      (value) => animationController.reverse());
 
                                   playCount++;
 
@@ -202,7 +204,26 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
 
                                   if (playCount == 3) {
                                     Future.delayed(Duration(milliseconds: 2000),
-                                        () {
+                                        () async {
+                                      final usersRef = FirebaseFirestore
+                                          .instance
+                                          .collection('StudentProgres');
+                                      final querySnapshot = await usersRef
+                                          .where('StudentEmail', isEqualTo: User.email)
+                                          .get();
+
+                                      if (querySnapshot.docs.isNotEmpty) {
+                                        // User with given email found in Firestore
+                                        final userDoc =
+                                            querySnapshot.docs.first;
+
+                                        await usersRef.doc(userDoc.id).update({
+                                          'InLevel': 3,
+                                        });
+                                        User.Inlevel = 3;
+                                      } else {
+                                        print("error");
+                                      }
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
