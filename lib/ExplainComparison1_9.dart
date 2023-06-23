@@ -227,22 +227,24 @@ class _Comparison1_9State extends State<EComparison1_9> {
                 width: 100,
                 child: FloatingActionButton(
                   onPressed: () async {
-                    final usersRef =
-                        FirebaseFirestore.instance.collection('StudentProgres');
-                    final querySnapshot = await usersRef
-                        .where('StudentEmail', isEqualTo: User.email)
-                        .get();
+                    if (User.level == 2 && User.Inlevel == 1) {
+                      final usersRef = FirebaseFirestore.instance
+                          .collection('StudentProgres');
+                      final querySnapshot = await usersRef
+                          .where('StudentEmail', isEqualTo: User.email)
+                          .get();
 
-                    if (querySnapshot.docs.isNotEmpty) {
-                      // User with given email found in Firestore
-                      final userDoc = querySnapshot.docs.first;
+                      if (querySnapshot.docs.isNotEmpty) {
+                        // User with given email found in Firestore
+                        final userDoc = querySnapshot.docs.first;
 
-                      await usersRef.doc(userDoc.id).update({
-                        'InLevel': 2,
-                      });
-                      User.Inlevel = 2;
-                    } else {
-                      print("error");
+                        await usersRef.doc(userDoc.id).update({
+                          'InLevel': 2,
+                        });
+                        User.Inlevel = 2;
+                      } else {
+                        print("error");
+                      }
                     }
                     Navigator.push(
                       context,

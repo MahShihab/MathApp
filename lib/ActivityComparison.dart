@@ -205,24 +205,29 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                                   if (playCount == 3) {
                                     Future.delayed(Duration(milliseconds: 2000),
                                         () async {
-                                      final usersRef = FirebaseFirestore
-                                          .instance
-                                          .collection('StudentProgres');
-                                      final querySnapshot = await usersRef
-                                          .where('StudentEmail', isEqualTo: User.email)
-                                          .get();
+                                      if (User.level == 2 && User.Inlevel == 2) {
+                                        final usersRef = FirebaseFirestore
+                                            .instance
+                                            .collection('StudentProgres');
+                                        final querySnapshot = await usersRef
+                                            .where('StudentEmail',
+                                                isEqualTo: User.email)
+                                            .get();
 
-                                      if (querySnapshot.docs.isNotEmpty) {
-                                        // User with given email found in Firestore
-                                        final userDoc =
-                                            querySnapshot.docs.first;
+                                        if (querySnapshot.docs.isNotEmpty) {
+                                          // User with given email found in Firestore
+                                          final userDoc =
+                                              querySnapshot.docs.first;
 
-                                        await usersRef.doc(userDoc.id).update({
-                                          'InLevel': 3,
-                                        });
-                                        User.Inlevel = 3;
-                                      } else {
-                                        print("error");
+                                          await usersRef
+                                              .doc(userDoc.id)
+                                              .update({
+                                            'InLevel': 3,
+                                          });
+                                          User.Inlevel = 3;
+                                        } else {
+                                          print("error");
+                                        }
                                       }
                                       Navigator.push(
                                         context,
