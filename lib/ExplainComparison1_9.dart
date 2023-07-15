@@ -97,12 +97,12 @@ class _Comparison1_9State extends State<EComparison1_9> {
         setState(() {
           _currentImageIndex = i;
           if (i == 0) {
-            _opacityLevel1 = 1.0;
+            _opacityLevel1 = 0.0;
             _opacityLevel2 = 0.0;
-            _opacityLevel3 = 0.0;
+            _opacityLevel3 = 1.0;
           } else if (i == 1) {
             // _opacityLevel1 = 0.0;
-            _opacityLevel3 = 1.0;
+            _opacityLevel1 = 1.0;
             _opacityLevel2 = 0.0;
           } else if (i == 2) {
             // _opacityLevel1 = 0.0;

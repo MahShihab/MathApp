@@ -19,46 +19,46 @@ class ESum1_9State extends State<ESum1_9> {
   double _firstButton = 0.0;
 
   List<String> _imagePaths1 = [
-    "assets/compar/firstCompar1.jpg",
-    "assets/compar/firstCompar2.jpg",
-    "assets/compar/firstCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/firstAdd1.png",
+    "assets/Addition/firstAdd2.png",
+    "assets/Addition/firstAdd3.png",
+    "assets/Addition/firstAdd3.png",
   ];
   List<String> _imagePaths2 = [
-    "assets/compar/secondCompar1.jpg",
-    "assets/compar/secondCompar2.jpg",
-    "assets/compar/secondCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/secondAdd1.png",
+    "assets/Addition/secondAdd2.png",
+    "assets/Addition/secondAdd3.png",
+    "assets/Addition/secondAdd3.png",
   ];
   List<String> _imagePaths3 = [
-    "assets/compar/thirdCompar1.jpg",
-    "assets/compar/thirdCompar2.jpg",
-    "assets/compar/thirdCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/thirdAdd1.png",
+    "assets/Addition/thirdAdd2.png",
+    "assets/Addition/thirdAdd3.png",
+    "assets/Addition/thirdAdd3.png",
   ];
   List<String> _imagePaths4 = [
-    "assets/compar/fourthCompar1.jpg",
-    "assets/compar/fourthCompar2.jpg",
-    "assets/compar/fourthCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/forthAdd1.png",
+    "assets/Addition/forthAdd2.png",
+    "assets/Addition/forthAdd3.png",
+    "assets/Addition/forthAdd3.png",
   ];
   List<String> _imagePaths5 = [
-    "assets/compar/fifthCompar1.jpg",
-    "assets/compar/fifthCompar2.jpg",
-    "assets/compar/fifthCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/fifthAdd1.png",
+    "assets/Addition/fifthAdd2.png",
+    "assets/Addition/fifthAdd3.png",
+    "assets/Addition/fifthAdd3.png",
   ];
   List<String> _imagePaths6 = [
-    "assets/compar/sixthCompar1.jpg",
-    "assets/compar/sixthCompar2.jpg",
-    "assets/compar/sixthCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/sixthAdd1.png",
+    "assets/Addition/sixthAdd2.png",
+    "assets/Addition/sixthAdd3.png",
+    "assets/Addition/sixthAdd3.png",
   ];
   List<String> _imagePaths7 = [
-    "assets/compar/SeventhCompar1.jpg",
-    "assets/compar/SeventhCompar2.jpg",
-    "assets/compar/SeventhCompar3.jpg",
-    "assets/compar/firstCompar3.jpg",
+    "assets/Addition/seventhAdd1.png",
+    "assets/Addition/seventhAdd2.png",
+    "assets/Addition/seventhAdd3.png",
+    "assets/Addition/seventhAdd3.png",
   ];
   int _currentImageIndex = 0;
 
@@ -102,22 +102,22 @@ class ESum1_9State extends State<ESum1_9> {
         setState(() {
           _currentImageIndex = i;
           if (i == 0) {
-            _opacityLevel1 = 1.0;
+            _opacityLevel1 = 0.0;
             _opacityLevel2 = 0.0;
             _opacityLevel3 = 0.0;
-            _opacityLevel4 = 0.0;
+            _opacityLevel4 = 1.0;
           } else if (i == 1) {
             // _opacityLevel1 = 0.0;
-            _opacityLevel3 = 1.0;
-            _opacityLevel2 = 0.0;
+            _opacityLevel2 = 1.0;
+            _opacityLevel3 = 0.0;
             _opacityLevel4 = 0.0;
           } else if (i == 2) {
             // _opacityLevel1 = 0.0;
             // _opacityLevel2 = 0.0;
-            _opacityLevel2 = 1.0;
+            _opacityLevel3 = 1.0;
             _opacityLevel4 = 0.0;
           } else if (i == 3) {
-            _opacityLevel4 = 1.0;
+            _opacityLevel1 = 1.0;
           } else {
             if (currentImageSet != 7) {
               _opacityLevel1 = 0.0;

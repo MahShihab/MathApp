@@ -7,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project/profile.dart';
 import 'AdminHome.dart';
+import 'StudentProgres.dart';
 import 'firebase_options.dart';
 
 class StudentInfo extends StatelessWidget {
@@ -88,6 +89,10 @@ class StudentInfo extends StatelessWidget {
                 icon: Icon(Icons.view_kanban_outlined),
                 onPressed: () {
                   // Handle edit profile button press
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StudentP()),
+                  );
                 },
               ),
             ],

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project/main.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project/profile.dart';
 import 'Comparison1_9.dart';
 import 'Data.dart';
-import 'ExplainComparison1_9.dart';
+import 'Numbers1_9.dart';
+import 'Subtract1_9.dart';
 import 'Sum1_9.dart';
 
 class Student extends StatefulWidget {
@@ -138,7 +137,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
           if (level >= 1) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyApp()),
+              MaterialPageRoute(builder: (context) => Num1_9()),
             );
           } else if (_isExpanded == true) {
             _isExpanded = false;
@@ -333,7 +332,7 @@ class _ExpandableWidgetState4 extends State<ExpandableWidget4> {
           if (level >= 4) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyApp()),
+              MaterialPageRoute(builder: (context) => sub1_9()),
             );
           } else if (_isExpanded == true) {
             _isExpanded = false;
