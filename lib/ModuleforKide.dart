@@ -4,6 +4,8 @@ import 'package:project/videoPage.dart';
 import 'package:project/activityPage.dart';
 import 'package:project/StarsPageForNumberFromZeroToNine.dart';
 import 'package:project/OceanActivity.dart';
+import 'package:project/oceanActivityForNumbersFromZeroToNine.dart';
+
 import 'package:lottie/lottie.dart';
 
 
@@ -285,14 +287,14 @@ class _ModuleforKideWidgetState extends State<ModuleforKideWidget> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => OceanActivityWidget(),
+                                  builder: (context) => OceanActivityForNumbersFromZeroToNineWidget(),
                                 ),
                               );
                             },
                             child: Lottie.asset(
                               'assets/OceanActivity/fishStart.json',
-                              height: 100,
-                              width: 300,
+                              height: 600,
+                              width: 600,
                               fit: BoxFit.fill,
                             ),
                           ),
