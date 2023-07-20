@@ -16,69 +16,63 @@ class StudentP extends StatefulWidget {
 }
 
 class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
-  // String name = "Ahmad";
-  late double level;
-  late String levelName;
+  late double level = 0 ;
+  late String levelName = "nothing";
+  late Future<String> fullNameFuture;
 
   @override
-  Future<void> initState() async {
+  void initState() {
     super.initState();
+    fullNameFuture = getFullNameFromEmail(User.StudentEmailInfo);
     final usersRef = FirebaseFirestore.instance.collection('StudentProgres');
-    // check if email already exists in database
-    final querySnapshot =
-        await usersRef.where('StudentEmail', isEqualTo: User.StudentEmailInfo).get();
+    // check if email already exists in the database
+    usersRef
+        .where('StudentEmail', isEqualTo: User.StudentEmailInfo)
+        .get()
+        .then((querySnapshot) {
+      final studentLevel = querySnapshot.docs.first.get('Level');
+      final studentInLevel = querySnapshot.docs.first.get('InLevel');
+      User.level = studentLevel;
+      User.Inlevel = studentInLevel;
 
-    final studentLevel = querySnapshot.docs.first.get('Level');
-    final studentInLevel = querySnapshot.docs.first.get('InLevel');
-    User.level = studentLevel;
-    User.Inlevel = studentInLevel;
+      level = studentLevel + studentInLevel / 10;
 
-    level = studentLevel + studentInLevel/10;
+      if (studentLevel == 1) {
+        if (studentInLevel == 1) {
+          levelName = "Explain numbers";
+        } else if (studentInLevel == 2) {
+          levelName = "Activity numbers";
+        } else if (studentInLevel == 3) {
+          levelName = "Game numbers";
+        }
+      } else if (studentLevel == 2) {
+        if (studentInLevel == 1) {
+          levelName = "Explain compar";
+        } else if (studentInLevel == 2) {
+          levelName = "Activity compar";
+        } else if (studentInLevel == 3) {
+          levelName = "Game compar";
+        }
+      } else if (studentLevel == 3) {
+        if (studentInLevel == 1) {
+          levelName = "Explain sumation";
+        } else if (studentInLevel == 2) {
+          levelName = "Activity sumation";
+        } else if (studentInLevel == 3) {
+          levelName = "Game sumation";
+        }
+      } else if (studentLevel == 4) {
+        if (studentInLevel == 1) {
+          levelName = "Explain subtract";
+        } else if (studentInLevel == 2) {
+          levelName = "Activity subtract";
+        } else if (studentInLevel == 3) {
+          levelName = "Game subtract";
+        }
+      }
 
-    if(studentLevel == 1){
-      if(studentInLevel == 1){
-        levelName = "Explain numbers";
-      }
-      if(studentInLevel == 2){
-        levelName = "Activity numbers";
-      }
-      if(studentInLevel == 3){
-        levelName = "Game numbers";
-      }
-    }
-    if(studentLevel == 2){
-      if(studentInLevel == 1){
-        levelName = "Explain compar";
-      }
-      if(studentInLevel == 2){
-        levelName = "Activity compar";
-      }
-      if(studentInLevel == 3){
-        levelName = "Game compar";
-      }
-    }
-    if(studentLevel == 3){
-      if(studentInLevel == 1){
-        levelName = "Explain sumation";
-      }
-      if(studentInLevel == 2){
-        levelName = "Activity sumation";
-      }
-      if(studentInLevel == 3){
-        levelName = "Game sumation";
-      }
-    }
-    if(studentLevel == 4){
-      if(studentInLevel == 1){
-        levelName = "Explain subtract";
-      }
-      if(studentInLevel == 2){
-        levelName = "Activity subtract";
-      }
-      if(studentInLevel == 3){
-        levelName = "Game subtract";
-      }
-    }
+      setState(() {}); // Update the state with the retrieved data
+    });
   }
 
   @override
@@ -120,9 +114,11 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
             ),
             SizedBox(height: 5),
             FutureBuilder<String>(
-              future: getFullNameFromEmail(User.StudentEmailInfo),
+              future: fullNameFuture,
               builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                if (snapshot.hasData) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Text("Loading...");
+                } else if (snapshot.hasData) {
                   return Text(
                     snapshot.data!,
                     style: TextStyle(
@@ -130,20 +126,11 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
                       color: Colors.blue,
                     ),
                   );
-                } else if (snapshot.hasError) {
-                  return Text("Error");
                 } else {
-                  return const Text("Loading...");
+                  return Text("Error");
                 }
               },
             ),
-            // Text(
-            //   name,
-            //   style: TextStyle(
-            //     fontSize: 24,
-            //     color: Colors.blue,
-            //   ),
-            // ),
             SizedBox(height: 20),
             Text(
               "Level",

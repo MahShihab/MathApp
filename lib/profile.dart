@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:project/Data.dart';
 import 'package:project/StudentInfo.dart';
@@ -8,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project/profile.dart';
 import 'AdminHome.dart';
+import 'StudentHome.dart';
 import 'firebase_options.dart';
 
 class Profile extends StatelessWidget {
@@ -21,12 +21,25 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {
+          onPressed: () async {
             // Code to execute when the icon is tapped
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Admin()),
-            );
+            // String type = "";
+            final usersRef = FirebaseFirestore.instance.collection('users');
+            // check if email already exists in database
+            final querySnapshot =
+                await usersRef.where('email', isEqualTo: User.email).get();
+            final userType = querySnapshot.docs.first.get('type');    
+
+            if (userType == "admin")
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Admin()),
+              );
+            else
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Student()),
+              );
           },
         ),
         title: const Text('Profile Page'),

@@ -19,46 +19,46 @@ class ESum1_9State extends State<ESum1_9> {
   double _firstButton = 0.0;
 
   List<String> _imagePaths1 = [
-    "assets/Addition/firstAdd1.png",
+    "assets/Addition/firstAdd4.png",
+    "assets/Addition/firstAdd3.png",
     "assets/Addition/firstAdd2.png",
-    "assets/Addition/firstAdd3.png",
-    "assets/Addition/firstAdd3.png",
+    "assets/Addition/firstAdd1.png",
   ];
   List<String> _imagePaths2 = [
-    "assets/Addition/secondAdd1.png",
+    "assets/Addition/secondAdd4.png",
+    "assets/Addition/secondAdd3.png",
     "assets/Addition/secondAdd2.png",
-    "assets/Addition/secondAdd3.png",
-    "assets/Addition/secondAdd3.png",
+    "assets/Addition/secondAdd1.png",
   ];
   List<String> _imagePaths3 = [
-    "assets/Addition/thirdAdd1.png",
+    "assets/Addition/thirdAdd4.png",
+    "assets/Addition/thirdAdd3.png",
     "assets/Addition/thirdAdd2.png",
-    "assets/Addition/thirdAdd3.png",
-    "assets/Addition/thirdAdd3.png",
+    "assets/Addition/thirdAdd1.png",
   ];
   List<String> _imagePaths4 = [
-    "assets/Addition/forthAdd1.png",
+    "assets/Addition/forthAdd4.png",
+    "assets/Addition/forthAdd3.png",
     "assets/Addition/forthAdd2.png",
-    "assets/Addition/forthAdd3.png",
-    "assets/Addition/forthAdd3.png",
+    "assets/Addition/forthAdd1.png",
   ];
   List<String> _imagePaths5 = [
-    "assets/Addition/fifthAdd1.png",
+    "assets/Addition/fifthAdd4.png",
+    "assets/Addition/fifthAdd3.png",
     "assets/Addition/fifthAdd2.png",
-    "assets/Addition/fifthAdd3.png",
-    "assets/Addition/fifthAdd3.png",
+    "assets/Addition/fifthAdd1.png",
   ];
   List<String> _imagePaths6 = [
-    "assets/Addition/sixthAdd1.png",
+    "assets/Addition/sixthAdd4.png",
+    "assets/Addition/sixthAdd3.png",
     "assets/Addition/sixthAdd2.png",
-    "assets/Addition/sixthAdd3.png",
-    "assets/Addition/sixthAdd3.png",
+    "assets/Addition/sixthAdd1.png",
   ];
   List<String> _imagePaths7 = [
-    "assets/Addition/seventhAdd1.png",
+    "assets/Addition/seventhAdd4.png",
+    "assets/Addition/seventhAdd3.png",
     "assets/Addition/seventhAdd2.png",
-    "assets/Addition/seventhAdd3.png",
-    "assets/Addition/seventhAdd3.png",
+    "assets/Addition/seventhAdd1.png",
   ];
   int _currentImageIndex = 0;
 

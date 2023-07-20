@@ -14,21 +14,55 @@ class Student extends StatefulWidget {
 }
 
 class _StudentState extends State<Student> {
+  late double level = 0;
+  late int studentLevel = User.level;
+  late int studentInLevel = User.Inlevel;
+
+  @override
+  void initState() {
+    super.initState();
+    level = studentLevel + studentInLevel / 10;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.account_circle),
-          onPressed: () {
-            // Code to execute when the icon is tapped
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Profile()),
-            );
-          },
+        leading: Expanded(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IconButton(
+                icon: Icon(Icons.star),
+                onPressed: () {
+                  // Code to execute when the icon is tapped
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Profile()),
+                  );
+                },
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Profile()),
+                  );
+                },
+                child: Text(
+                  level.toStringAsFixed(
+                      1), // Replace "5" with the desired number
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
+        // ... Rest of the code ...
         title: const Text('Student Page'),
         backgroundColor: Colors.teal,
         elevation: 4,

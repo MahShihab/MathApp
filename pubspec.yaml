@@ -36,6 +36,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   lottie: ^2.3.1
+  audioplayers: ^0.20.1
+  just_audio: ^0.9.31
 
 
   # The following adds the Cupertino Icons font to your application.
