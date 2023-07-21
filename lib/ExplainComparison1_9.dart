@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -57,13 +58,18 @@ class _Comparison1_9State extends State<EComparison1_9> {
   ];
   int _currentImageIndex = 0;
 
+  final player = AudioPlayer();
+
+
   @override
   void initState() {
     super.initState();
+    player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
 
     _showImages();
   }
 
+  
   Future<void> _showImages() async {
     int currentImageSet = 1;
 

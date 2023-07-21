@@ -1,15 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'dart:math';
-import 'dart:async';
 
-import 'Data.dart';
-import 'Sum1_9.dart';
-
-import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:project/ModuleforKide.dart';
 import 'package:project/ImageCarousel.dart';
 
 
@@ -35,13 +28,13 @@ class _ENum1_9State
     //_model =reateModel(context, () => StarsPageForNumberFromZeroToNineModel());
   }
 
-  @override
-  void dispose() {
-    //_model.dispose();
+  // @override
+  // void dispose() {
+  //   //_model.dispose();
 
-    _unfocusNode.dispose();
-    super.dispose();
-  }
+  //   _unfocusNode.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -64,18 +57,18 @@ class _ENum1_9State
 
           ],
           audioUrls: [
-            'StarsAudiosForNumbersFromZeroToNine/هيا نذهب في رحلة الى الفضاء كي نساعد رجل.m4a',
-            'StarsAudiosForNumbersFromZeroToNine/النجوم لم تظهر بعد العدد صفر.mp3',
-            'StarsAudiosForNumbersFromZeroToNine/عثرنا على نجمة واحدة في الفضاء العدد واح.mp3',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء نجمتين وبالتالي العدد اثن.mp3',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ثلاثة نجوم وبالتالي العدد.mp3',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء أربعة نجوم وبالتالي العدد.mp3',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء خمسة نجوم وبالتالي العدد .mp3',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ستة نجوم وبالتالي العدد س.m4a',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء سبعة نجوم وبالتالي العدد .m4a',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء ثمانية نجوم وبالتالي العد.m4a',
-            'StarsAudiosForNumbersFromZeroToNine/يوجد في الفضاء تسعة نجوم وبالتالي العدد .m4a',
-            'StarsAudiosForNumbersFromZeroToNine/شكرا لمساعدتكم على عد النجوم رافقتكم الس.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test.m4a',
+            'StarsAudiosForNumbersFromZeroToNine/test0.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test1.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test2.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test3.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test4.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test5.mp3',
+            'StarsAudiosForNumbersFromZeroToNine/test6.m4a',
+            'StarsAudiosForNumbersFromZeroToNine/test7.m4a',
+            'StarsAudiosForNumbersFromZeroToNine/test8.m4a',
+            'StarsAudiosForNumbersFromZeroToNine/test9.m4a',
+            'StarsAudiosForNumbersFromZeroToNine/fin.mp3',
 
             // add more audio URLs here
           ],
