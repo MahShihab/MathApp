@@ -56,16 +56,53 @@ class _Comparison1_9State extends State<EComparison1_9> {
     "assets/compar/SeventhCompar2.jpg",
     "assets/compar/SeventhCompar3.jpg",
   ];
+
+  List<String> sounds1 = [
+    "assets/Addition/firstAdd4.png",
+    "assets/Addition/firstAdd3.png",
+    "assets/Addition/firstAdd2.png",
+  ];
+  List<String> sounds2 = [
+    "assets/Addition/secondAdd4.png",
+    "assets/Addition/secondAdd3.png",
+    "assets/Addition/secondAdd2.png",
+  ];
+  List<String> sounds3 = [
+    "assets/Addition/thirdAdd4.png",
+    "assets/Addition/thirdAdd3.png",
+    "assets/Addition/thirdAdd2.png",
+  ];
+  List<String> sounds4 = [
+    "assets/Addition/forthAdd4.png",
+    "assets/Addition/forthAdd2.png",
+    "assets/Addition/forthAdd1.png",
+  ];
+  List<String> sounds5 = [
+    "assets/Addition/fifthAdd4.png",
+    "assets/Addition/fifthAdd3.png",
+    "assets/Addition/fifthAdd2.png",
+  ];
+  List<String> sounds6 = [
+    "assets/Addition/sixthAdd4.png",
+    "assets/Addition/sixthAdd2.png",
+    "assets/Addition/sixthAdd1.png",
+  ];
+  List<String> sounds7 = [
+    "assets/Addition/seventhAdd3.png",
+    "assets/Addition/seventhAdd2.png",
+    "assets/Addition/seventhAdd1.png",
+  ];
+
   int _currentImageIndex = 0;
 
   final player = AudioPlayer();
 
 
   @override
-  void initState() {
+  Future<void> initState() async {
     super.initState();
     player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
-
+    await Future.delayed(Duration(seconds: 2));
     _showImages();
   }
 
@@ -75,26 +112,34 @@ class _Comparison1_9State extends State<EComparison1_9> {
 
     while (currentImageSet <= 7) {
       List<String> currentImagePaths;
+      List<String> currentSoundsPaths;
 
       if (currentImageSet == 1) {
         currentImagePaths = _imagePaths1;
+        currentSoundsPaths = sounds1;
       }
       if (currentImageSet == 2) {
         currentImagePaths = _imagePaths2;
+        currentSoundsPaths = sounds2;
       }
       if (currentImageSet == 3) {
         currentImagePaths = _imagePaths3;
+        currentSoundsPaths = sounds3;
       }
       if (currentImageSet == 4) {
         currentImagePaths = _imagePaths4;
+        currentSoundsPaths = sounds4;
       }
       if (currentImageSet == 5) {
         currentImagePaths = _imagePaths5;
+        currentSoundsPaths = sounds5;
       }
       if (currentImageSet == 6) {
         currentImagePaths = _imagePaths6;
+        currentSoundsPaths = sounds6;
       } else {
         currentImagePaths = _imagePaths7;
+        currentSoundsPaths = sounds7;
       }
 
       for (int i = 0; i < 4; i++) {
@@ -103,24 +148,29 @@ class _Comparison1_9State extends State<EComparison1_9> {
         setState(() {
           _currentImageIndex = i;
           if (i == 0) {
+            player.play(AssetSource(sounds1[0]));
             _opacityLevel1 = 0.0;
             _opacityLevel2 = 0.0;
             _opacityLevel3 = 1.0;
           } else if (i == 1) {
+            player.play(AssetSource(sounds1[1]));
             // _opacityLevel1 = 0.0;
             _opacityLevel1 = 1.0;
             _opacityLevel2 = 0.0;
           } else if (i == 2) {
+            player.play(AssetSource(sounds1[2]));
             // _opacityLevel1 = 0.0;
             // _opacityLevel2 = 0.0;
             _opacityLevel2 = 1.0;
           } else {
+            // player.play(AssetSource(sounds1[0]));
             if (currentImageSet != 7) {
               _opacityLevel1 = 0.0;
               _opacityLevel2 = 0.0;
               _opacityLevel3 = 0.0;
             }
             if (currentImageSet == 7) {
+              // player.play(AssetSource(sounds1[0]));
               _firstButton = 1.0;
               // _secondButton = 1.0;
             }
@@ -133,6 +183,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
         await Future.delayed(Duration(seconds: 2));
         setState(() {
           _imagePaths1 = _imagePaths2;
+          sounds1 = sounds2;
         });
       }
       if (currentImageSet == 2) {
@@ -140,6 +191,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
         await Future.delayed(Duration(seconds: 2));
         setState(() {
           _imagePaths1 = _imagePaths3;
+          sounds1 = sounds3;
         });
       }
       if (currentImageSet == 3) {
@@ -147,6 +199,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
         await Future.delayed(Duration(seconds: 2));
         setState(() {
           _imagePaths1 = _imagePaths4;
+          sounds1 = sounds4;
         });
       }
       if (currentImageSet == 4) {
@@ -154,6 +207,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
         await Future.delayed(Duration(seconds: 2));
         setState(() {
           _imagePaths1 = _imagePaths5;
+          sounds1 = sounds5;
         });
       }
       if (currentImageSet == 5) {
@@ -161,6 +215,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
         await Future.delayed(Duration(seconds: 2));
         setState(() {
           _imagePaths1 = _imagePaths6;
+          sounds1 = sounds6;
         });
       }
       if (currentImageSet == 6) {
@@ -168,6 +223,7 @@ class _Comparison1_9State extends State<EComparison1_9> {
         await Future.delayed(Duration(seconds: 2));
         setState(() {
           _imagePaths1 = _imagePaths7;
+          sounds1 = sounds7;
         });
       }
 

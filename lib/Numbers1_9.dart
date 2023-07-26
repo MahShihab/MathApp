@@ -115,49 +115,49 @@ class Num1_9 extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40), // add vertical spacing here
-                GestureDetector(
-                  onTap: () {
-                    // Handle container 1 click
-                    if (num1 == 3 || num2 > 1) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GNum1_9()),
-                      );
-                    } else {
-                      print("klndslkasndalndsklndalksnd");
-                    }
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      color: Color.fromARGB(255, 122, 14, 205),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 10,
-                          offset:
-                              const Offset(0, 0), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    height: num1 == 3 || num2 > 1 ? 200 : 100,
-                    width: num1 == 3 || num2 > 1 ? null : 100,
-                    child: num1 == 3 || num2 > 1
-                        ? ClipRRect(
-                            borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        : Icon(
-                            Icons.star_border,
-                            size: 50,
-                          ),
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     // Handle container 1 click
+                //     if (num1 == 3 || num2 > 1) {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => GNum1_9()),
+                //       );
+                //     } else {
+                //       print("klndslkasndalndsklndalksnd");
+                //     }
+                //   },
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(40),
+                //       color: Color.fromARGB(255, 122, 14, 205),
+                //       boxShadow: [
+                //         BoxShadow(
+                //           color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
+                //           spreadRadius: 5,
+                //           blurRadius: 10,
+                //           offset:
+                //               const Offset(0, 0), // changes position of shadow
+                //         ),
+                //       ],
+                //     ),
+                //     height: num1 == 3 || num2 > 1 ? 200 : 100,
+                //     width: num1 == 3 || num2 > 1 ? null : 100,
+                //     child: num1 == 3 || num2 > 1
+                //         ? ClipRRect(
+                //             borderRadius: BorderRadius.circular(40),
+                //             child: Image.network(
+                //               'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                //               fit: BoxFit.cover,
+                //             ),
+                //           )
+                //         : Icon(
+                //             Icons.star_border,
+                //             size: 50,
+                //           ),
+                //   ),
+                // ),
                 const SizedBox(height: 40),
                 ElevatedButton(
                     onPressed: () {

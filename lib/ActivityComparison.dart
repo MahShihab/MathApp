@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -25,11 +26,14 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
   late AnimationController animationController;
   late AnimationController animationController2;
 
+  final _player = AudioPlayer();
+
   @override
   void initState() {
     super.initState();
     // Assign a random index for the correct answer
-    correctIndex = 0;
+    _player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
+    correctIndex = 0; 
     imageOne = 'assets/4.gif';
     imageTwo = 'assets/2.gif';
     playCount = 0;
@@ -161,6 +165,7 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                             onAccept: (data) {
                               // Check if the dragged container is the correct answer
                               if (data == correctIndex) {
+                              _player.play(AssetSource('true.mp3'));
                                 // Check if the drop target is empty
                                 if (droppedIndex == null) {
                                   setState(() {
@@ -243,6 +248,7 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                                   // );
                                 }
                               } else {
+                                _player.play(AssetSource('false.mp3'));
                                 animationController2.forward().then(
                                     (value) => animationController2.reverse());
                                 // animationController2.reverse();

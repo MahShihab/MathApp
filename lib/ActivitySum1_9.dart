@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -47,6 +48,8 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
   late AnimationController animationController;
   late AnimationController animationController2;
 
+  final _player = AudioPlayer();
+
   @override
   void initState() {
     super.initState();
@@ -86,6 +89,7 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
 
   void _onDoorTap(int answer) {
     if (answer == _correctAnswer) {
+      _player.play(AssetSource('true.mp3'));
       if (_currentRound == 3) {
         setState(() {
           _gameOver = true;
@@ -119,6 +123,7 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
         });
       }
     } else {
+      _player.play(AssetSource('false.mp3'));
       // Show wrong animation
       animationController2
           .forward()

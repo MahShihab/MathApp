@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -45,11 +46,14 @@ class _GComparState extends State<GCompar> with TickerProviderStateMixin {
     ),
   ];
 
+  final _player = AudioPlayer();
+
   late PageController _pageController;
 
   @override
   void initState() {
     super.initState();
+    _player.play(AssetSource('false.mp3'));
     imageOne = 'assets/4.gif';
     compar = '<';
     _pageController = PageController(initialPage: _currentIndex);
@@ -233,6 +237,7 @@ class _GComparState extends State<GCompar> with TickerProviderStateMixin {
                                   onAccept: (data) {
                                     // Check if the dragged container is the correct answer
                                     if (data == correctIndex) {
+                                      _player.play(AssetSource('true.mp3'));
                                       // Check if the drop target is empty
                                       if (droppedIndex == null) {
                                         setState(() {
@@ -370,6 +375,7 @@ class _GComparState extends State<GCompar> with TickerProviderStateMixin {
                                         // );
                                       }
                                     } else {
+                                      _player.play(AssetSource('false.mp3'));
                                       animationController2
                                           .forward()
                                           .then((value) =>
