@@ -43,27 +43,35 @@ class _StudentState extends State<Student> {
                   );
                 },
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Profile()),
-                  );
-                },
-                child: Text(
-                  level.toStringAsFixed(
-                      1), // Replace "5" with the desired number
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              // Container(
+              //   // Wrap the GestureDetector with a Container
+              //   width: 35, // Set the desired width
+              //   height: 20, // Set the desired height
+                // child:
+                 Scrollbar(
+                   child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Profile()),
+                      );
+                    },
+                    child: Text(
+                      level.toStringAsFixed(
+                          1), // Replace "5" with the desired number
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                                 ),
+                 ),
+              // ),
             ],
           ),
         ),
         // ... Rest of the code ...
-        title: const Text('Student Page'),
+        title: const Text('KidzZone'),
         backgroundColor: Colors.teal,
         elevation: 4,
       ),

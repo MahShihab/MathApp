@@ -98,6 +98,7 @@ class _ANum1_9State extends State<ANum1_9> {
             }
           }
         },
+        physics: NeverScrollableScrollPhysics(),
       ),
     );
   }

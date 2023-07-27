@@ -99,10 +99,10 @@ class _Comparison1_9State extends State<EComparison1_9> {
 
 
   @override
-  Future<void> initState() async {
+  void initState()  {
     super.initState();
-    player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
-    await Future.delayed(Duration(seconds: 2));
+    // player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
+    Future.delayed(Duration(seconds: 2));
     _showImages();
   }
 

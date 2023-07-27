@@ -53,7 +53,7 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-
+    _player.play(AssetSource('true.mp3'));
     theCave = 'assets/Cave.jpg';
 
     animationController = AnimationController(
