@@ -58,55 +58,55 @@ class _Comparison1_9State extends State<EComparison1_9> {
   ];
 
   List<String> sounds1 = [
-    "assets/Addition/firstAdd4.png",
-    "assets/Addition/firstAdd3.png",
-    "assets/Addition/firstAdd2.png",
+    "CompSound/Comp2.mp3",
+    "CompSound/Comp3.mp3",
+    "CompSound/Comp4.mp3",
   ];
   List<String> sounds2 = [
-    "assets/Addition/secondAdd4.png",
-    "assets/Addition/secondAdd3.png",
-    "assets/Addition/secondAdd2.png",
+    "CompSound/Comp5.mp3",
+    "CompSound/Comp6.mp3",
+    "CompSound/Comp7.mp3",
   ];
   List<String> sounds3 = [
-    "assets/Addition/thirdAdd4.png",
-    "assets/Addition/thirdAdd3.png",
-    "assets/Addition/thirdAdd2.png",
+    "CompSound/Comp8.mp3",
+    "CompSound/Comp9.mp3",
+    "CompSound/Comp10.mp3",
   ];
   List<String> sounds4 = [
-    "assets/Addition/forthAdd4.png",
-    "assets/Addition/forthAdd2.png",
-    "assets/Addition/forthAdd1.png",
+    "CompSound/Comp11.mp3",
+    "CompSound/Comp12.mp3",
+    "CompSound/Comp13.mp3",
   ];
   List<String> sounds5 = [
-    "assets/Addition/fifthAdd4.png",
-    "assets/Addition/fifthAdd3.png",
-    "assets/Addition/fifthAdd2.png",
+    "CompSound/Comp14.mp3",
+    "CompSound/Comp15.mp3",
+    "CompSound/Comp16.mp3",
   ];
   List<String> sounds6 = [
-    "assets/Addition/sixthAdd4.png",
-    "assets/Addition/sixthAdd2.png",
-    "assets/Addition/sixthAdd1.png",
+    "CompSound/Comp17.mp3",
+    "CompSound/Comp18.mp3",
+    "CompSound/Comp19.mp3",
   ];
   List<String> sounds7 = [
-    "assets/Addition/seventhAdd3.png",
-    "assets/Addition/seventhAdd2.png",
-    "assets/Addition/seventhAdd1.png",
+    "CompSound/Comp20.mp3",
+    "CompSound/Comp21.mp3",
+    "CompSound/Comp22.mp3",
   ];
 
   int _currentImageIndex = 0;
 
   final player = AudioPlayer();
 
+  int wait = 6;
 
   @override
-  void initState()  {
+  void initState() {
     super.initState();
-    // player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
+    player.play(AssetSource('CompSound/Comp1.mp3'));
     Future.delayed(Duration(seconds: 2));
     _showImages();
   }
 
-  
   Future<void> _showImages() async {
     int currentImageSet = 1;
 
@@ -141,9 +141,9 @@ class _Comparison1_9State extends State<EComparison1_9> {
         currentImagePaths = _imagePaths7;
         currentSoundsPaths = sounds7;
       }
-
+      // int wait = 6;
       for (int i = 0; i < 4; i++) {
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(Duration(seconds: wait));
         print(_imagePaths1);
         setState(() {
           _currentImageIndex = i;
@@ -176,6 +176,13 @@ class _Comparison1_9State extends State<EComparison1_9> {
             }
           }
         });
+        wait = 3;
+        if(i == 2){
+          wait = 5;
+        }
+        if(i == 3){
+          wait = 0;
+        }
       }
 
       if (currentImageSet == 1) {

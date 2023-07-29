@@ -53,7 +53,7 @@ class _GSum1_9State extends State<GSum1_9> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _player.play(AssetSource('true.mp3'));
+    _player.play(AssetSource('moreVocices/StartSum.mp3'));
     animationController = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
@@ -87,12 +87,14 @@ class _GSum1_9State extends State<GSum1_9> with TickerProviderStateMixin {
 
   void _onDoorTap(int answer) {
     if (answer == _correctAnswer) {
-      _player.play(AssetSource('true.mp3'));
+      
       if (_currentRound == 5) {
         setState(() {
+          _player.play(AssetSource('moreVocices/AhsantWasaltKanz.mp3'));
           _gameOver = true;
         });
       } else {
+        _player.play(AssetSource('true.mp3'));
         setState(() {
           _moveDoors(answer);
           _currentRound++;

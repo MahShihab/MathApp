@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:project/StudentHome.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'ActivitySub1_9.dart';
@@ -33,8 +34,7 @@ class sub1_9 extends StatelessWidget {
                     if (num1 >= 1 || num2 > 4) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => ESub1_9()),
+                        MaterialPageRoute(builder: (context) => ESub1_9()),
                       );
                     } else {
                       print("klndslkasndalndsklndalksnd");
@@ -59,10 +59,16 @@ class sub1_9 extends StatelessWidget {
                     child: num1 >= 1 || num2 > 4
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
+                            child: Lottie.asset(
+                              'assets/lotties/balloons.json',
+                              // height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
+                            //  Image.network(
+                            //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                           )
                         : Icon(
                             Icons.star_border,
@@ -77,8 +83,7 @@ class sub1_9 extends StatelessWidget {
                     if (num1 >= 2 || num2 > 4) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => ASub1_9()),
+                        MaterialPageRoute(builder: (context) => ASub1_9()),
                       );
                     } else {
                       print("klndslkasndalndsklndalksnd");
@@ -103,10 +108,16 @@ class sub1_9 extends StatelessWidget {
                     child: num1 >= 2 || num2 > 4
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
+                            child: Lottie.asset(
+                              'assets/OceanActivity/fishStart.json',
+                              // height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
+                            //  Image.network(
+                            //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                           )
                         : Icon(
                             Icons.star_border,
@@ -121,8 +132,7 @@ class sub1_9 extends StatelessWidget {
                     if (num1 == 3 || num2 > 4) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => GSub1_9()),
+                        MaterialPageRoute(builder: (context) => GSub1_9()),
                       );
                     } else {
                       print("klndslkasndalndsklndalksnd");
@@ -147,10 +157,16 @@ class sub1_9 extends StatelessWidget {
                     child: num1 == 3 || num2 > 4
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
+                            child: Lottie.asset(
+                              'assets/OceanActivity/fishStart.json',
+                              // height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
+                            //  Image.network(
+                            //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                           )
                         : Icon(
                             Icons.star_border,

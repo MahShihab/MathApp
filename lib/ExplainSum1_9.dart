@@ -63,46 +63,46 @@ class ESum1_9State extends State<ESum1_9> {
   ];
 
   List<String> sounds1 = [
-    "assets/Addition/firstAdd4.png",
-    "assets/Addition/firstAdd3.png",
-    "assets/Addition/firstAdd2.png",
-    "assets/Addition/firstAdd1.png",
+    "ADDSound/Add1.mp3",
+    "ADDSound/Add2.mp3",
+    "ADDSound/Add3.mp3",
+    "ADDSound/Add.png",
   ];
   List<String> sounds2 = [
-    "assets/Addition/secondAdd4.png",
-    "assets/Addition/secondAdd3.png",
-    "assets/Addition/secondAdd2.png",
-    "assets/Addition/secondAdd1.png",
+    "ADDSound/Add4.mp3",
+    "ADDSound/Add5.mp3",
+    "ADDSound/Add6.mp3",
+    "ADDSound/Add1.png",
   ];
   List<String> sounds3 = [
-    "assets/Addition/thirdAdd4.png",
-    "assets/Addition/thirdAdd3.png",
-    "assets/Addition/thirdAdd2.png",
-    "assets/Addition/thirdAdd1.png",
+    "ADDSound/Add7.mp3",
+    "ADDSound/Add8.mp3",
+    "ADDSound/Add9.mp3",
+    "ADDSound/Add.png",
   ];
   List<String> sounds4 = [
-    "assets/Addition/forthAdd4.png",
-    "assets/Addition/forthAdd3.png",
-    "assets/Addition/forthAdd2.png",
-    "assets/Addition/forthAdd1.png",
+    "ADDSound/Add10.mp3",
+    "ADDSound/Add11.mp3",
+    "ADDSound/Add12.mp3",
+    "ADDSound/Add.png",
   ];
   List<String> sounds5 = [
-    "assets/Addition/fifthAdd4.png",
-    "assets/Addition/fifthAdd3.png",
-    "assets/Addition/fifthAdd2.png",
-    "assets/Addition/fifthAdd1.png",
+    "ADDSound/Add13.mp3",
+    "ADDSound/Add14.mp3",
+    "ADDSound/Add15.mp3",
+    "ADDSound/Add.png",
   ];
   List<String> sounds6 = [
-    "assets/Addition/sixthAdd4.png",
-    "assets/Addition/sixthAdd3.png",
-    "assets/Addition/sixthAdd2.png",
-    "assets/Addition/sixthAdd1.png",
+    "ADDSound/Add16.mp3",
+    "ADDSound/Add17.mp3",
+    "ADDSound/Add18.mp3",
+    "ADDSound/Add.png",
   ];
   List<String> sounds7 = [
-    "assets/Addition/seventhAdd4.png",
-    "assets/Addition/seventhAdd3.png",
-    "assets/Addition/seventhAdd2.png",
-    "assets/Addition/seventhAdd1.png",
+    "ADDSound/Add19.mp3",
+    "ADDSound/Add20.mp3",
+    "ADDSound/Add21.mp3",
+    "ADDSound/Addd1.png",
   ];
 
   int _currentImageIndex = 0;
@@ -110,12 +110,14 @@ class ESum1_9State extends State<ESum1_9> {
   final _player = AudioPlayer();
 
   @override
-  void initState()  {
+  void initState() {
     super.initState();
     _player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
     // await Future.delayed(Duration(seconds: 2));
     _showImages();
   }
+
+  late int wait;
 
   Future<void> _showImages() async {
     int currentImageSet = 1;
@@ -151,9 +153,9 @@ class ESum1_9State extends State<ESum1_9> {
         currentImagePaths = _imagePaths7;
         currentSoundsPaths = sounds7;
       }
-
+      wait = 3;
       for (int i = 0; i < 5; i++) {
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(Duration(seconds: wait));
         print(_imagePaths1);
         setState(() {
           _currentImageIndex = i;
@@ -176,7 +178,7 @@ class ESum1_9State extends State<ESum1_9> {
             _opacityLevel3 = 1.0;
             // _opacityLevel4 = 0.0;
           } else if (i == 3) {
-            _player.play(AssetSource(sounds1[3]));
+            // _player.play(AssetSource(sounds1[3]));
             _opacityLevel1 = 1.0;
           } else {
             if (currentImageSet != 7) {
@@ -193,6 +195,14 @@ class ESum1_9State extends State<ESum1_9> {
             }
           }
         });
+        if (i == 2) {
+          wait = 2;
+        }
+        // if (i == 4) {
+        //   wait = 0;
+         else {
+          wait = 3;
+        }
       }
 
       if (currentImageSet == 1) {

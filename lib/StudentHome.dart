@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:project/profile.dart';
 import 'Comparison1_9.dart';
 import 'Data.dart';
@@ -29,47 +30,48 @@ class _StudentState extends State<Student> {
     return Scaffold(
       backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
-        leading: Expanded(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                icon: Icon(Icons.star),
-                onPressed: () {
-                  // Code to execute when the icon is tapped
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Profile()),
-                  );
-                },
-              ),
-              // Container(
-              //   // Wrap the GestureDetector with a Container
-              //   width: 35, // Set the desired width
-              //   height: 20, // Set the desired height
-                // child:
-                 Scrollbar(
-                   child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Profile()),
-                      );
-                    },
-                    child: Text(
-                      level.toStringAsFixed(
-                          1), // Replace "5" with the desired number
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                                 ),
-                 ),
-              // ),
-            ],
-          ),
+        leading:
+            // Expanded(
+            // child: Row(
+            //   mainAxisSize: MainAxisSize.min,
+            //   children: [
+            IconButton(
+          icon: Icon(Icons.star),
+          onPressed: () {
+            // Code to execute when the icon is tapped
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Profile()),
+            );
+          },
         ),
+        // Container(
+        //   // Wrap the GestureDetector with a Container
+        //   width: 35, // Set the desired width
+        //   height: 20, // Set the desired height
+        // child:
+        //  Scrollbar(
+        //    child: GestureDetector(
+        //     onTap: () {
+        //       Navigator.push(
+        //         context,
+        //         MaterialPageRoute(builder: (context) => Profile()),
+        //       );
+        //     },
+        //     child: Text(
+        //       level.toStringAsFixed(
+        //           1), // Replace "5" with the desired number
+        //       style: TextStyle(
+        //         fontSize: 16,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //                  ),
+        //  ),
+        // ),
+        // ],
+        //   ),
+        // ),
         // ... Rest of the code ...
         title: const Text('KidzZone'),
         backgroundColor: Colors.teal,
@@ -87,14 +89,20 @@ class _StudentState extends State<Student> {
             Divider(),
             ExpandableWidget(
               content: Container(
-                color: Colors.white,
+                color: Color.fromARGB(255, 0, 232, 209),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                    // Image.network(
+                    //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                    //   width: 200,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    Lottie.asset(
+                      'assets/lotties/num.json',
+                      height: 100,
                       width: 200,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ],
                 ),
@@ -103,14 +111,20 @@ class _StudentState extends State<Student> {
             Divider(),
             ExpandableWidget2(
               content: Container(
-                color: Colors.white,
+                color: Color.fromARGB(255, 0, 232, 209),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                      width: 200,
-                      fit: BoxFit.cover,
+                    // Image.network(
+                    //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                    //   width: 200,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    Lottie.asset(
+                      'assets/lotties/comp.json',
+                      height: 120,
+                      width: 300,
+                      fit: BoxFit.fill,
                     ),
                   ],
                 ),
@@ -119,14 +133,20 @@ class _StudentState extends State<Student> {
             Divider(),
             ExpandableWidget3(
               content: Container(
-                color: Colors.white,
+                color: Color.fromARGB(255, 0, 232, 209),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                      width: 200,
-                      fit: BoxFit.cover,
+                    // Image.network(
+                    //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                    //   width: 200,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    Lottie.asset(
+                      'assets/lotties/Sum.json',
+                      height: 120,
+                      width: 180,
+                      fit: BoxFit.fill,
                     ),
                   ],
                 ),
@@ -135,14 +155,20 @@ class _StudentState extends State<Student> {
             Divider(),
             ExpandableWidget4(
               content: Container(
-                color: Colors.white,
+                color: Color.fromARGB(255, 0, 232, 209),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.network(
-                      'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                    // Image.network(
+                    //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                    //   width: 200,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    Lottie.asset(
+                      'assets/lotties/Sub.json',
+                      height: 120,
                       width: 200,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ],
                 ),
@@ -192,7 +218,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
-          color: Colors.teal,
+          color: Color.fromARGB(255, 0, 232, 209),
           borderRadius: BorderRadius.circular(50),
         ),
         // color: Colors.teal,
@@ -257,7 +283,7 @@ class _ExpandableWidgetState2 extends State<ExpandableWidget2> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
-          color: Colors.teal,
+          color: Color.fromARGB(255, 0, 232, 209),
           borderRadius: BorderRadius.circular(50),
         ),
         // color: Colors.teal,
@@ -322,7 +348,7 @@ class _ExpandableWidgetState3 extends State<ExpandableWidget3> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
-          color: Colors.teal,
+          color: Color.fromARGB(255, 0, 232, 209),
           borderRadius: BorderRadius.circular(50),
         ),
         // color: Colors.teal,
@@ -387,7 +413,7 @@ class _ExpandableWidgetState4 extends State<ExpandableWidget4> {
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
-          color: Colors.teal,
+          color: Color.fromARGB(255, 0, 232, 209),
           borderRadius: BorderRadius.circular(50),
         ),
         // color: Colors.teal,

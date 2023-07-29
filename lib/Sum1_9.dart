@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:project/ActivityComparison.dart';
 import 'package:project/AdminHome.dart';
 import 'package:project/StudentHome.dart';
@@ -63,10 +64,17 @@ class Sum1_9 extends StatelessWidget {
                     child: num1 >= 1 || num2 > 3
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
+                            child:
+                            Lottie.asset(
+                              'assets/lotties/fing2.json',
+                              // height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
+                            //  Image.network(
+                            //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                           )
                         : Icon(
                             Icons.star_border,
@@ -107,10 +115,16 @@ class Sum1_9 extends StatelessWidget {
                     child: num1 >= 2 || num2 > 3
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
+                            child:Lottie.asset(
+                              'assets/lotties/treasure.json',
+                              // height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
+                            //  Image.network(
+                            //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                           )
                         : Icon(
                             Icons.star_border,
@@ -153,10 +167,16 @@ class Sum1_9 extends StatelessWidget {
                     child: num1 == 3 || num2 > 3
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
-                              fit: BoxFit.cover,
+                            child: Lottie.asset(
+                              'assets/lotties/key.json',
+                              // height: 100,
+                              width: 300,
+                              fit: BoxFit.fill,
                             ),
+                            // Image.network(
+                            //   'https://t4.ftcdn.net/jpg/01/26/70/79/360_F_126707959_wvPkULtxG3MEYUL9fav9o4ZzLTVDtlUg.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                           )
                         : Icon(
                             Icons.star_border,

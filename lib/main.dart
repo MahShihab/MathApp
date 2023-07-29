@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project/AdminHome.dart';
 import 'package:project/Data.dart';
 import 'package:project/StudentHome.dart';
+import 'package:project/preTest.dart';
 import 'package:project/signUp.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -237,6 +238,10 @@ class MyHomePage extends StatelessWidget {
                         context,
                         MaterialPageRoute(builder: (context) => SignUp()),
                       );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => Pre()),
+                      // );
                     },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(

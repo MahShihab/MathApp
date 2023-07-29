@@ -75,6 +75,7 @@ flutter:
 
       - assets/background1.jpg
       - assets/background2.jpg
+      - assets/preBackGround.jpg
 
       - assets/door.png
       - assets/Cave.jpg
@@ -83,6 +84,19 @@ flutter:
       - assets/lotties/correct.json
       - assets/lotties/wrong.json
       - assets/lotties/treasure.json
+      - assets/lotties/comp.json
+      - assets/lotties/Sum.json
+      - assets/lotties/star.json
+      - assets/lotties/numberOne.json
+      - assets/lotties/apple.json
+      - assets/lotties/apple2.json
+      - assets/lotties/apple3.json
+      - assets/lotties/balloons.json
+      - assets/lotties/Sub.json
+      - assets/lotties/fing1.json
+      - assets/lotties/fing2.json
+      - assets/lotties/key.json
+      - assets/lotties/num.json
 
 
       - assets/compar/firstCompar1.jpg
@@ -147,6 +161,55 @@ flutter:
       - assets/Addition/seventhAdd2.png
       - assets/Addition/seventhAdd3.png
       - assets/Addition/seventhAdd4.png
+
+      - assets/CompSound/Comp1.mp3
+      - assets/CompSound/Comp2.mp3
+      - assets/CompSound/Comp3.mp3
+      - assets/CompSound/Comp4.mp3
+      - assets/CompSound/Comp5.mp3
+      - assets/CompSound/Comp6.mp3
+      - assets/CompSound/Comp7.mp3
+      - assets/CompSound/Comp8.mp3
+      - assets/CompSound/Comp9.mp3
+      - assets/CompSound/Comp10.mp3
+      - assets/CompSound/Comp11.mp3
+      - assets/CompSound/Comp12.mp3
+      - assets/CompSound/Comp13.mp3
+      - assets/CompSound/Comp14.mp3
+      - assets/CompSound/Comp15.mp3
+      - assets/CompSound/Comp16.mp3
+      - assets/CompSound/Comp17.mp3
+      - assets/CompSound/Comp18.mp3
+      - assets/CompSound/Comp19.mp3
+      - assets/CompSound/Comp20.mp3
+      - assets/CompSound/Comp21.mp3
+      - assets/CompSound/Comp22.mp3
+      - assets/CompSound/StartComp.mp3
+
+      - assets/ADDSound/Add1.mp3
+      - assets/ADDSound/Add2.mp3
+      - assets/ADDSound/Add3.mp3
+      - assets/ADDSound/Add4.mp3
+      - assets/ADDSound/Add5.mp3
+      - assets/ADDSound/Add6.mp3
+      - assets/ADDSound/Add7.mp3
+      - assets/ADDSound/Add8.mp3
+      - assets/ADDSound/Add9.mp3
+      - assets/ADDSound/Add10.mp3
+      - assets/ADDSound/Add11.mp3
+      - assets/ADDSound/Add12.mp3
+      - assets/ADDSound/Add13.mp3
+      - assets/ADDSound/Add14.mp3
+      - assets/ADDSound/Add15.mp3
+      - assets/ADDSound/Add16.mp3
+      - assets/ADDSound/Add17.mp3
+      - assets/ADDSound/Add18.mp3
+      - assets/ADDSound/Add19.mp3
+      - assets/ADDSound/Add20.mp3
+      - assets/ADDSound/Add21.mp3
+      - assets/CompSound/StartComp.mp3
+
+
       ############################################################# mulla
       - assets/OneToTen.png
       - assets/sound1.mp3
@@ -177,6 +240,47 @@ flutter:
       - assets/StarsAudiosForNumbersFromZeroToNine/test8.m4a
       - assets/StarsAudiosForNumbersFromZeroToNine/test9.m4a
       - assets/StarsAudiosForNumbersFromZeroToNine/fin.mp3
+
+      - assets/stars/S1.mp3
+      - assets/stars/S2.mp3
+      - assets/stars/S3.mp3
+      - assets/stars/S4.mp3
+      - assets/stars/S5.mp3
+      - assets/stars/S6.mp3
+      - assets/stars/S8.mp3
+      - assets/stars/S9.mp3
+      - assets/stars/S10.mp3
+      - assets/stars/S11.mp3
+      - assets/stars/S7.mp3
+      - assets/stars/Wefound8.mp3
+
+      - assets/moreVocices/AhsantWasaltKanz.mp3
+      - assets/moreVocices/ChosenRihteComp.mp3
+      - assets/moreVocices/ChoseRightSub.mp3
+      - assets/moreVocices/ChoseRightAdd.mp3
+      - assets/moreVocices/Fishe1.mp3
+      - assets/moreVocices/Fishe2.mp3
+      - assets/moreVocices/Fishe3.mp3
+      - assets/moreVocices/StartSum.mp3
+      - assets/moreVocices/StartComp.mp3
+      - assets/moreVocices/Where2.mp3
+      - assets/moreVocices/Where8.mp3
+      - assets/moreVocices/Where4.mp3
+
+      - assets/Sup/Sup1.jpg
+      - assets/Sup/Sup2.jpg
+      - assets/Sup/Sup3.jpg
+      - assets/Sup/Sup4.jpg
+      - assets/Sup/Sup5.jpg
+      - assets/Sup/Sup6.jpg
+
+      - assets/Sup/Ballon2.mp3
+      - assets/Sup/Ballon3.mp3
+      - assets/Sup/Ballon4.mp3
+      - assets/Sup/Ballon5.mp3
+      - assets/Sup/Ballon6.mp3
+      - assets/Sup/Ballon7.mp3
+
       - assets/OceanActivity/fishStart.json
       - assets/OceanActivity/bubbles.json
       - assets/OceanActivity/prize.json

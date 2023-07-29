@@ -53,7 +53,7 @@ class _GComparState extends State<GCompar> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _player.play(AssetSource('false.mp3'));
+    _player.play(AssetSource('CompSound/StartComp.mp3'));
     imageOne = 'assets/4.gif';
     compar = '<';
     _pageController = PageController(initialPage: _currentIndex);

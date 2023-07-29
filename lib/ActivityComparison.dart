@@ -32,7 +32,7 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     // Assign a random index for the correct answer
-    _player.play(AssetSource('OceanActivity/divingInOhean.mpeg'));
+    _player.play(AssetSource('CompSound/StartComp.mp3'));
     correctIndex = 0; 
     imageOne = 'assets/4.gif';
     imageTwo = 'assets/2.gif';

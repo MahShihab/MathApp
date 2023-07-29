@@ -53,7 +53,7 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _player.play(AssetSource('true.mp3'));
+    _player.play(AssetSource('moreVocices/StartSum.mp3'));
     theCave = 'assets/Cave.jpg';
 
     animationController = AnimationController(
@@ -81,7 +81,7 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
     while (_answers.length < 3) {
       final answer = _random.nextInt(9) + 1;
       if (!_answers.contains(answer)) {
-        _answers.add(answer);
+        _answers.add(answer); 
       }
     }
     _answers.shuffle();
@@ -89,12 +89,13 @@ class _ASum1_9State extends State<ASum1_9> with TickerProviderStateMixin {
 
   void _onDoorTap(int answer) {
     if (answer == _correctAnswer) {
-      _player.play(AssetSource('true.mp3'));
       if (_currentRound == 3) {
         setState(() {
+          _player.play(AssetSource('moreVocices/AhsantWasaltKanz.mp3'));
           _gameOver = true;
         });
       } else {
+        _player.play(AssetSource('true.mp3'));
         setState(() {
           _moveDoors(answer);
           _currentRound++;

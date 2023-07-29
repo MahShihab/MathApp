@@ -40,20 +40,18 @@ class _ANum1_9State extends State<ANum1_9> {
     super.initState();
 
     // _player.play(source);
-    _player
-        .play(AssetSource('OceanActivity/divingInOhean.mpeg'));
-        // .then((value) => _pageController.nextPage(
-        //       duration: Duration(milliseconds: 500),
-        //       curve: Curves.ease,
-        //     ));
-    Timer(Duration(seconds: 17), () {
+    _player.play(AssetSource('moreVocices/Fishe1.mp3'));
+    // .then((value) => _pageController.nextPage(
+    //       duration: Duration(milliseconds: 500),
+    //       curve: Curves.ease,
+    //     ));
+    Timer(Duration(seconds: 4), () {
       _pageController.nextPage(
         duration: Duration(milliseconds: 500),
         curve: Curves.ease,
       );
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +181,7 @@ class _ANum1_9State extends State<ANum1_9> {
   Scaffold buildPageWithStack(int index) {
     if (index == 1 && justOneTimeForAudio_whatIsTheNymberOfFishs) {
       justOneTimeForAudio_whatIsTheNymberOfFishs = false;
-      _player.play(AssetSource('OceanActivity/whatIsTheNymberOfFishs.mp3'));
+      _player.play(AssetSource('moreVocices/Fishe2.mp3'));
     }
     String assetName = 'fish${index - 1}.png';
     String textValue = '${index - 1}';
@@ -278,8 +276,28 @@ class _ANum1_9State extends State<ANum1_9> {
   }
 
   Container lastPageInPageView() {
-    _player.play(AssetSource('OceanActivity/thanksForCountFishs.mp3'));
-    Future.delayed(Duration(seconds: 11)).then((_) {
+    _player.play(AssetSource('moreVocices/Fishe3.mp3'));
+    Future.delayed(Duration(seconds: 11)).then((_) async {
+      if (User.level == 1 && User.Inlevel == 2) {
+        final usersRef =
+            FirebaseFirestore.instance.collection('StudentProgres');
+        final querySnapshot =
+            await usersRef.where('StudentEmail', isEqualTo: User.email).get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          // User with given email found in Firestore
+          final userDoc = querySnapshot.docs.first;
+
+          await usersRef.doc(userDoc.id).update({
+            'InLevel': 1,
+            'Level': 2,
+          });
+          User.Inlevel = 1;
+          User.level = 2;
+        } else {
+          print("error");
+        }
+      }
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (_) => Num1_9(),
