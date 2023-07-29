@@ -29,7 +29,7 @@ class StudentInfo extends StatelessWidget {
             );
           },
         ),
-        title: const Text('Profile Page'),
+        title: const Text('صفحة الطالب'),
         backgroundColor: Colors.teal,
         elevation: 4,
       ),
@@ -58,9 +58,9 @@ class StudentInfo extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 );
               } else if (snapshot.hasError) {
-                return Text("Error");
+                return Text("خطأ");
               } else {
-                return const Text("Loading...");
+                return const Text("تحميل . . .");
               }
             },
           ),

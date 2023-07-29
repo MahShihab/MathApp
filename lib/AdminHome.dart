@@ -37,9 +37,9 @@ class Admin extends StatelessWidget {
             if (snapshot.hasData) {
               return Text(snapshot.data!);
             } else if (snapshot.hasError) {
-              return Text("Error");
+              return Text("خطأ");
             } else {
-              return const Text("Loading...");
+              return const Text("تحميل . . .");
             }
           },
         ),
@@ -76,7 +76,7 @@ class Admin extends StatelessWidget {
             );
           } else if (snapshot.hasError) {
             return Center(
-              child: Text("Error"),
+              child: Text("خطأ"),
             );
           } else {
             return const Center(
@@ -103,14 +103,14 @@ class Admin extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Search for user"),
+          title: Text("ابحث عن طالب"),
           content: TextField(
             onChanged: (value) {
               email = value;
             },
             decoration: InputDecoration(
               labelText: "Email",
-              hintText: "Enter email address",
+              hintText: "ادخل ايميل  الطالب",
             ),
           ),
           actions: [
@@ -118,7 +118,7 @@ class Admin extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Cancel"),
+              child: Text("إلغاء"),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -209,14 +209,14 @@ class Admin extends StatelessWidget {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: const Text('Error'),
-                          content: const Text('Its not a student'),
+                          title: const Text('خطأ'),
+                          content: const Text('ليس طالب'),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text('OK'),
+                              child: const Text('تم'),
                             ),
                           ],
                         );
@@ -233,14 +233,14 @@ class Admin extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: const Text('Error'),
-                        content: const Text('email does not exist'),
+                        title: const Text('خطأ'),
+                        content: const Text('طالب غير موجود'),
                         actions: <Widget>[
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: const Text('OK'),
+                            child: const Text('تم'),
                           ),
                         ],
                       );
@@ -248,7 +248,7 @@ class Admin extends StatelessWidget {
                   );
                 }
               },
-              child: const Text("Add student"),
+              child: const Text("أضف الطالب"),
             ),
           ],
         );

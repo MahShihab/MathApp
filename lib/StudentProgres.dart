@@ -90,7 +90,7 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
           },
         ),
         title: Text(
-          'Student Progress',
+          'مستوى الطالب',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
           children: [
             SizedBox(height: 20),
             Text(
-              "Name",
+              "الاسم",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -117,7 +117,7 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
               future: fullNameFuture,
               builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Text("Loading...");
+                  return const Text("تحميل . . .");
                 } else if (snapshot.hasData) {
                   return Text(
                     snapshot.data!,
@@ -127,13 +127,13 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
                     ),
                   );
                 } else {
-                  return Text("Error");
+                  return Text("خطأ");
                 }
               },
             ),
             SizedBox(height: 20),
             Text(
-              "Level",
+              "المرحلة",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -149,7 +149,7 @@ class _StudentPState extends State<StudentP> with TickerProviderStateMixin {
             ),
             SizedBox(height: 20),
             Text(
-              "Level Name",
+              "اسم المرحلة",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

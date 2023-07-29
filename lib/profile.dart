@@ -42,7 +42,7 @@ class Profile extends StatelessWidget {
               );
           },
         ),
-        title: const Text('Profile Page'),
+        title: const Text('الملف الشخصي'),
         backgroundColor: Colors.teal,
         elevation: 4,
       ),
@@ -71,9 +71,9 @@ class Profile extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 );
               } else if (snapshot.hasError) {
-                return Text("Error");
+                return Text("خطأ");
               } else {
-                return const Text("Loading...");
+                return const Text("تحميل . . .");
               }
             },
           ),
@@ -117,7 +117,7 @@ class Profile extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => MyApp()),
               );
             },
-            child: Text('Log out'),
+            child: Text('تسجيل خروج'),
           ),
         ],
       ),
@@ -158,7 +158,7 @@ class Profile extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Edit Your Information"),
+            title: Text("تعديل ملفك الشخصي"),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -168,7 +168,7 @@ class Profile extends StatelessWidget {
                   },
                   decoration: InputDecoration(
                     labelText: "Full Name",
-                    hintText: "Enter full name",
+                    hintText: "ادخل اسمك",
                   ),
                 ),
                 TextField(
@@ -177,7 +177,7 @@ class Profile extends StatelessWidget {
                   },
                   decoration: InputDecoration(
                     labelText: "Password",
-                    hintText: "Enter password",
+                    hintText: "ادخل كلمة السر",
                   ),
                 ),
               ],
@@ -187,7 +187,7 @@ class Profile extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text("Cancel"),
+                child: Text("إلغاء"),
               ),
               ElevatedButton(
                 onPressed: () async {

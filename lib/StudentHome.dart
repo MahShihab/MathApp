@@ -73,7 +73,7 @@ class _StudentState extends State<Student> {
         //   ),
         // ),
         // ... Rest of the code ...
-        title: const Text('KidzZone'),
+        title: const Text('رياضيات الصف الأول'),
         backgroundColor: Colors.teal,
         elevation: 4,
       ),
