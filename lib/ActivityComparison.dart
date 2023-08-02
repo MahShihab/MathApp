@@ -215,7 +215,7 @@ class _AComparState extends State<ACompar> with TickerProviderStateMixin {
                                             .instance
                                             .collection('StudentProgres');
                                         final querySnapshot = await usersRef
-                                            .where('StudentEmail',
+                                            .where('StudentEmail', 
                                                 isEqualTo: User.email)
                                             .get();
 

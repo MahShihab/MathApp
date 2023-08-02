@@ -84,7 +84,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
           return Transform.rotate(
             angle: 1.5708,
             child: Transform.scale(
-              scaleX: 2,
+              scaleX: 2.2,
               scaleY: 1.8,
               child: Image.asset(
                 widget.imageUrls[index],

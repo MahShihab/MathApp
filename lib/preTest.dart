@@ -135,7 +135,7 @@ class _PreState extends State<Pre> with TickerProviderStateMixin {
 
   void _navigateToNextView() {
     if (_currentIndex == 11) {
-      int level = (_currentIndex / 3) as int;
+      int level = 5;
       FirebaseFirestore.instance.collection('StudentProgres').add({
         'email': User.email,
         'Level': level,
@@ -161,7 +161,7 @@ class _PreState extends State<Pre> with TickerProviderStateMixin {
   void _onContainerTap(int answer) {
     if (answer == _correctAnswer) {
       // _player.play(AssetSource("path"));
-       
+
       Future.delayed(const Duration(milliseconds: 500), () {
         _navigateToNextView();
         setState(() {
@@ -169,11 +169,22 @@ class _PreState extends State<Pre> with TickerProviderStateMixin {
         });
         _player.play(AssetSource(sounds[_currentIndex + 1]));
       });
-      
     } else {
-      int level = (_currentIndex / 3) as int;
+      int level = 1;
+      if (_currentIndex == 0 || _currentIndex == 1 || _currentIndex == 2) {
+        level = 1;
+      }
+      if (_currentIndex == 3 || _currentIndex == 4 || _currentIndex == 5) {
+        level = 2;
+      }
+      if (_currentIndex == 6 || _currentIndex == 7 || _currentIndex == 8) {
+        level = 3;
+      }
+      if (_currentIndex == 9 || _currentIndex == 10) {
+        level = 4;
+      }
       FirebaseFirestore.instance.collection('StudentProgres').add({
-        'email': User.email,
+        'StudentEmail': User.email,
         'Level': level,
         'InLevel': 1,
       });
@@ -201,7 +212,7 @@ class _PreState extends State<Pre> with TickerProviderStateMixin {
             body: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/preBackGround.jpg'),
+                  image: AssetImage('assets/background1.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -212,8 +223,8 @@ class _PreState extends State<Pre> with TickerProviderStateMixin {
                     Text(
                       _currentEquation,
                       style: TextStyle(
-                        fontSize: 50,
-                        color: Color.fromARGB(255, 222, 243, 33),
+                        fontSize: 100,
+                        color: Color.fromARGB(255, 243, 79, 33),
                       ),
                     ),
                     const SizedBox(height: 100),
